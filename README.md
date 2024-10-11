@@ -1,8 +1,22 @@
 # 스마트 비바리움 강의자료
 ## 목적
-- 본 프로젝트는 비바리움(구체적으로는 테라리움) 제작과 ESP32 개발보드의 활용(IoT 구현을 위한 도구)을 종합하여 스마트 비바리움을 만드는 것을 목표로 합니다.<br>
-- 프로젝트를 진행하는 과정에서 "메이킹 활동의 즐거움"을 느끼고, "IoT에 대한 지식과 이해(나아가 적용)"를 쌓길 기대합니다.<br>
-- 또한 여기서 멈추는 것이 아닌 보다 아름답고 멋진 스마트 비바리움으로 발전하길 기대하며, 이를 위한 공부를 함께하고 싶습니다.<br>
+- 본 프로젝트는 비바리움(구체적으로는 테라리움) 제작과 ESP32 개발보드의 활용(IoT 구현을 위한 도구)을 종합하여 스마트 비바리움을 만드는 것을 목표로 합니다.
+- 프로젝트를 진행하는 과정에서 "메이킹 활동의 즐거움"을 느끼고, "IoT에 대한 지식과 이해(나아가 적용)"를 쌓길 기대합니다.
+- 참고로 본 프로젝트는 개인적으로 개발하는 중인 스마트 비바리움(가칭 SmartVivariumV1, V1)을 강의용으로 개선한 것으로, V1과의 차이는 아래와 같습니다.
+
+<details>
+  <summary>SmartVivariumV1과의 차이</summary>
+
+  **1. ESP32 개발보드 변경**
+ - 기존 5 type 포트가 C-type 포트로 변경되었습니다.
+
+  **2. ESP32 확장쉴드 변경**  
+- Motor Drive가 내장됨으로써 직류 모터의 활용이 손쉬워졌습니다.
+- 연결 케이블의 개선(잘 꼬이지 않음)이 되었습니다.
+- 볼트를 체결할 수 있는 나사산이 추가됨으로써 보드와 이 외의 H/W 연결 시, 너트가 불필요해졌습니다.
+
+  **<a href="https://github.com/kimyw33/SmartVivarirumV1/blob/main/">스마트비바리움 버전1 보기</a>**
+</details>
 
 ## 개발환경 및 준비물
 - 무선 네트워크 환경, 구글 계정, Arduino IDE가 설치된 PC, ESP32 개발보드, ESP32 개발보드를 효율적으로 사용하기 위한 확장 쉴드, 각종 센서 및 액추에이터, 케이블 등<br>
@@ -26,20 +40,6 @@
      - 포트: Serial Port(USB), 포트 번호는 COM4, COM3 등으로 다를 수 있음.<br>
   7. ESP32 업로드 에러 발생 시
   <a href="https://docs.google.com/presentation/d/1MqSPEBPEWeh-agVcmBz7CRioSePWG-13oV_nJNzy-uo/edit?usp=sharing">문제 해결 방법</a>
-</details>
-<details>
-  <summary>SmartVivariumV1과의 차이</summary>
-
-  **1. ESP32 개발보드 변경**
- - 기존 5 type 포트가 C-type 포트로 변경되었습니다.
-
-  **2. ESP32 확장쉴드 변경**  
-- Motor Drive가 내장됨으로써 직류 모터의 활용이 손쉬워졌습니다.
-- 연결 케이블의 개선(잘 꼬이지 않음)이 되었습니다.
-- 볼트를 체결할 수 있는 나사산이 추가됨으로써 보드와 이 외의 H/W 연결 시, 너트가 불필요해졌습니다.
-
-  **<a href="https://github.com/kimyw33/SmartVivarirumV1/blob/main/">스마트비바리움 버전1 보기</a>**
-
 </details>
 
 # 01_BuiltInLedControl
