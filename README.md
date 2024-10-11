@@ -31,13 +31,15 @@
   <summary>SmartVivariumV1과의 차이</summary>
   <a href="https://github.com/kimyw33/SmartVivarirumV1/blob/main/">스마트비바리움 버전1 저장소</a>
 
-  **1. ESP32 개발보드 변경**<br>  
+**1. ESP32 개발보드 변경**<br>  
  기존 5 type port가 C-type 포트로 변경되었습니다.
 
   **2. ESP32 확장쉴드 변경**  
 - Motor Drive가 내장됨으로써 직류 모터의 활용이 손쉬워졌습니다.
 - 연결 케이블의 개선(잘 꼬이지 않음)이 되었습니다.<br>
 - 볼트를 체결할 수 있는 나사산이 추가됨으로써 보드와 이 외의 H/W 연결 시, 너트가 불필요해졌습니다.
+
+
 </details>
 
 # 01_BuiltInLedControl
