@@ -31,7 +31,7 @@
   <summary>SmartVivariumV1과의 차이</summary>
 
   **1. ESP32 개발보드 변경**
- 기존 5 type 포트가 C-type 포트로 변경되었습니다.
+ - 기존 5 type 포트가 C-type 포트로 변경되었습니다.
 
   **2. ESP32 확장쉴드 변경**  
 - Motor Drive가 내장됨으로써 직류 모터의 활용이 손쉬워졌습니다.
