@@ -5,9 +5,9 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(BUILT_IN_LED, HIGH);  // LED를 켭니다 (전압을 HIGH로 설정).
+  digitalWrite(BUILT_IN_LED, HIGH);  // LED를 켭니다 (전압을 HIGH==1로 설정).
   delay(1000);  // 1초 동안 대기합니다 (1000밀리초).
   
-  digitalWrite(BUILT_IN_LED, LOW);  // LED를 끕니다 (전압을 LOW로 설정).
+  digitalWrite(BUILT_IN_LED, LOW);  // LED를 끕니다 (전압을 LOW==0로 설정).
   delay(1000);  // 다시 1초 동안 대기합니다.
 }
