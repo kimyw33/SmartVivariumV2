@@ -7,9 +7,9 @@
 #define SCREEN_HEIGHT 64     // OLED 디스플레이의 높이 (픽셀 단위)
 #define OLED_RESET -1        // OLED 디스플레이의 리셋 핀 (-1은 리셋 핀 공유를 의미)
 #define SCREEN_ADDRESS 0x3C  // I2C 주소 (128x64 OLED 디스플레이의 기본 주소는 0x3C)
-#define DHTPIN 14            // DHT 센서를 연결한 핀 번호 (GPIO 14)
+#define DHTPIN 33            // DHT 센서를 연결한 핀 번호 (GPIO 33)
 #define DHTTYPE DHT11        // DHT 센서의 종류 (DHT11)
-#define Cds 39               // GPIO 39번에 조도 센서 연결 (ESP32의 아날로그 입력 핀 중 하나)
+#define Cds 34               // GPIO 34번에 조도 센서 연결 (ESP32의 아날로그 입력 핀 중 하나)
 
 // Adafruit_SSD1306 객체 생성: 디스플레이의 크기, I2C 통신을 위한 Wire 객체, 리셋 핀을 지정
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);

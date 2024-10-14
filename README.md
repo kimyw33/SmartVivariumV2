@@ -144,4 +144,33 @@
 
   ---
 
-# 05_Button
+# 5_버튼 제어
+
+이 프로젝트의 목표는 **버튼의 상태를 읽고 시리얼 모니터에 출력**하는 것입니다.<br>
+참고) 버튼을 눌렀을때: 1, 누르지 않았을때: 0
+
+<details>
+  <summary>준비물</summary>
+  - ESP32 보드 1개<br>
+  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개<br>
+  - USB 케이블(ESP32와 PC 연결용) 1개<br>
+  - BUTTON 모듈 1개
+  - 점퍼 와이어(쉴드와 BUTTON 모듈 연결용) 1개<br>
+  - Arduino IDE (코드 작성 및 업로드)<br>
+</details>
+
+<details>
+  <summary>코드 설명</summary>
+  - 버튼 핀 설정: 'pinMode(BUTTON, INPUT)'을 사용하여 버튼 핀을 입력 모드로 설정합니다.<br>
+  - 버튼 상태 읽기: 'digitalRead(BUTTON)'으로 버튼 핀의 디지털 입력 값을 읽어옵니다.<br>
+  - 버튼 상태 출력: 읽어온 버튼 상태를 'Serial.println(buttonState)'을 사용하여 시리얼 모니터에 출력합니다.<br>
+  - 디바운싱: 'delay(100)'을 사용하여 버튼 상태를 읽는 간격을 0.1초로 설정하여 입력 노이즈를 방지합니다.<br>
+</details>
+
+**5-1_버튼 제어 응용**<br>
+- 본 응용 프로젝트의 목표는 버튼을 마치 ON / OFF 스위치 처럼 "한 번 눌렀을 때 버튼 상태를 0->1 또는 1->0로 유지하는 것"입니다.<br>
+- 버튼이 눌릴 때마다 토글(Toggle)하여 현재의 상태를 시리얼 모니터에 출력합니다.<br>
+
+ ---
+
+ # 06_ButtonControlLed
