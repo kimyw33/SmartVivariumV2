@@ -6,7 +6,7 @@
 
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
-bool isOn = false;              // LED 상태를 저장하는 변수
+bool ledState = false;          // LED 상태를 저장하는 변수
 bool lastButtonState = LOW;     // 마지막 버튼 상태를 저장하는 변수
 bool currentButtonState = LOW;  // 현재 버튼 상태를 저장하는 변수
 
@@ -24,13 +24,13 @@ void loop() {
   if (currentButtonState != lastButtonState) {
     // 버튼이 눌렸을 때 상태를 변경합니다.
     if (currentButtonState == HIGH) {
-      isOn = !isOn;  // LED 상태를 토글합니다.
+      ledState = !ledState;  // LED 상태를 토글합니다.
     }
     delay(50);  // 버튼 상태 변화에 대한 노이즈를 방지하기 위한 짧은 지연
   }
 
   // LED 상태에 따라 NeoPixel 색상을 설정합니다.
-  if (isOn) {
+  if (ledState) {
     for (int i = 0; i < NUMPIXELS; i += 2) {
       pixels.setPixelColor(i, pixels.Color(255, 0, 0));  // 짝수 픽셀을 빨간색으로 설정합니다.
     }
