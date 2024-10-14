@@ -174,3 +174,32 @@
  ---
 
  # 06_ButtonControlLed
+
+ 이 프로젝트의 목적은 위에서 살펴본 **BUTTON을 활용**하여 **NeoPixel LED 스트립의 전원을 제어**하는 것입니다.<br>
+ 버튼을 눌렀을 때, NeoPixel LED가 켜지며, 버튼을 다시 누르면 NeoPixel LED 꺼집니다.<br>
+추가로 NeoPixel Led의 색상은 식물의 광합성에 가장 효율적인 **청색**과 **적색**으로 설정하였습니다.<br>
+참고) 본 프로젝트에서 제작할 비바리움의 크기(200x200x200)를 고려하여 LED(9구)*2개 = 18구를 직렬 연결(모듈 1개의 OUT 단자와 추가한 모듈의 IN 단자를 연결)하여 사용하였습니다. LED 출력 개수를 변경하고자 할 경우 'NUMPIXELS 18'의 개수 부분을 필요한 만큼 변경 가능합니다.
+
+<details>
+  <summary>준비물</summary>
+  - ESP32 보드 1개<br>
+  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개<br>
+  - USB 케이블(ESP32와 PC 연결용) 1개<br>
+  - BUTTON 모듈 1개
+  - NeoPixel LED 스트립 모듈 2개(픽셀 수: 9구*2개 = 총 18구)<br>
+  - 점퍼 와이어(쉴드와 BUTTON 모듈, LED 모듈 연결용) 총 3개<br>
+  - Arduino IDE (코드 작성 및 업로드)<br>
+  - Adafruit NeoPixel 라이브러리(Arduino IDE에서 설치, 본 실습에서는 "Adafruit NeoPixel" by Adafruit 사용)
+</details>
+
+<details>
+  <summary>코드 설명</summary>
+  - 버튼 상태 읽기: `digitalRead(BUTTON_PIN)`을 사용하여 버튼의 현재 상태를 읽어옵니다.<br>
+  - 버튼 상태 변화 감지: 버튼의 상태가 변화했는지 확인하고, 상태가 `HIGH`일 때 LED 상태를 토글합니다.<br>
+  - LED 색상 설정: `isOn` 변수에 따라 LED의 색상을 설정합니다. 버튼이 눌리면 짝수 인덱스의 LED를 빨간색으로, 홀수 인덱스의 LED를 파란색으로 설정합니다. 버튼이 눌리지 않으면 모든 LED를 꺼서 LED를 끕니다.<br>
+  - 디바운싱: 버튼 입력의 노이즈를 방지하기 위해 짧은 지연을 추가합니다.<br>
+</details>
+
+---
+
+# 07_ConnetingToBlynkByWifi
