@@ -173,20 +173,21 @@
 
  ---
 
- # 06_ButtonControlLed
+ # 6_버튼으로 LED와 FAN 제어
 
- 이 프로젝트의 목적은 위에서 살펴본 **BUTTON을 활용**하여 **NeoPixel LED 스트립의 전원을 제어**하는 것입니다.<br>
- 버튼을 눌렀을 때, NeoPixel LED가 켜지며, 버튼을 다시 누르면 NeoPixel LED 꺼집니다.<br>
+ 이 프로젝트의 목적은 위에서 살펴본 **BUTTON을 활용**하여 **NeoPixel LED 스트립 및 FAN을 제어**하는 것입니다.<br>
+ 버튼을 눌렀을 때, NeoPixel LED와 FAN이 켜지며, 버튼을 다시 누르면 꺼집니다.<br>
 추가로 NeoPixel Led의 색상은 식물의 광합성에 가장 효율적인 **청색**과 **적색**으로 설정하였습니다.<br>
 참고) 본 프로젝트에서 제작할 비바리움의 크기(200x200x200)를 고려하여 LED(9구)*2개 = 18구를 직렬 연결(모듈 1개의 OUT 단자와 추가한 모듈의 IN 단자를 연결)하여 사용하였습니다. LED 출력 개수를 변경하고자 할 경우 'NUMPIXELS 18'의 개수 부분을 필요한 만큼 변경 가능합니다.
 
 <details>
   <summary>준비물</summary>
   - ESP32 보드 1개<br>
-  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개<br>
+  - EPS32 쉴드(DOIT ESP32 DEVKIT V1, 모터 드라이버 내장) 1개<br>
   - USB 케이블(ESP32와 PC 연결용) 1개<br>
   - BUTTON 모듈 1개
   - NeoPixel LED 스트립 모듈 2개(픽셀 수: 9구*2개 = 총 18구)<br>
+  - DC FAN 1개<br>
   - 점퍼 와이어(쉴드와 BUTTON 모듈, LED 모듈 연결용) 총 3개<br>
   - Arduino IDE (코드 작성 및 업로드)<br>
   - Adafruit NeoPixel 라이브러리(Arduino IDE에서 설치, 본 실습에서는 "Adafruit NeoPixel" by Adafruit 사용)
@@ -196,71 +197,11 @@
   <summary>코드 설명</summary>
   - 버튼 상태 읽기: `digitalRead(BUTTON_PIN)`을 사용하여 버튼의 현재 상태를 읽어옵니다.<br>
   - 버튼 상태 변화 감지: 버튼의 상태가 변화했는지 확인하고, 상태가 `HIGH`일 때 LED 상태를 토글합니다.<br>
-  - LED 색상 설정: `isOn` 변수에 따라 LED의 색상을 설정합니다. 버튼이 눌리면 짝수 인덱스의 LED를 빨간색으로, 홀수 인덱스의 LED를 파란색으로 설정합니다. 버튼이 눌리지 않으면 모든 LED를 꺼서 LED를 끕니다.<br>
+  - LED 색상 설정: `ledState` 변수에 따라 LED의 색상을 설정합니다. 버튼이 눌리면 짝수 인덱스의 LED를 빨간색으로, 홀수 인덱스의 LED를 파란색으로 설정합니다. 버튼이 눌리지 않으면 모든 LED를 꺼서 LED를 끕니다.<br>
+  - FAN ON/OFF 설정: 'fanState' 변수를 활용하여 LED의 On/OFF와 동시에 FAN을 켜고 끕니다.<br>
   - 디바운싱: 버튼 입력의 노이즈를 방지하기 위해 짧은 지연을 추가합니다.<br>
 </details>
 
-<details>
-  <summary>모터 드라이버가 내장된 쉴드에서 팬(FAN)을 활용하고자 할 경우</summary>
-- 모터 드라이버가 지원되는 GPIO 중, DC 팬을 5번 핀에 연결된 상황 가정<br>
-- 위 '6_버튼으로 LED 제어'에서 LED의 ON / OFF와 동기화하여 FAN 작동하도록 설정<br>
-- 코드:<br>
-#include <Adafruit_NeoPixel.h>  // NeoPixel 스트립을 제어하기 위한 헤더파일 호출
-
-#define PIN 16         // NeoPixel 스트립을 위한 GPIO 16
-#define BUTTON_PIN 32  // 버튼을 위한 GPIO 32
-#define NUMPIXELS 18   // NeoPixel의 픽셀 수
-#define FAN_PIN 5      // FAN을 위한 GPIO 5
-
-Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
-
-bool ledState = false;          // LED 상태를 저장하는 변수
-bool fanState = false;
-bool lastButtonState = LOW;     // 마지막 버튼 상태를 저장하는 변수
-bool currentButtonState = LOW;  // 현재 버튼 상태를 저장하는 변수
-
-void setup() {
-  pinMode(BUTTON_PIN, INPUT);  // 버튼 핀을 입력 모드로 설정합니다.
-  // 버튼을 눌렀을 때, Led가 오작동하거나, 깜빡깜빡 거릴 경우, 위 코드를 주석처리하고, 아래 코드의 주석을 제거하여 코드 작성
-  //pinMode(BUTTON_PIN, INPUT_PULLUP);  // 버튼 핀을 풀업 저항과 함께 입력 모드로 설정
-  pixels.begin();  // NeoPixel 스트립을 초기화합니다.
-  pinMode(FAN_PIN, OUTPUT);    // 팬 핀을 출력 모드로 설정합니다.
-}
-
-void loop() {
-  currentButtonState = digitalRead(BUTTON_PIN);  // 현재 버튼 상태를 읽어 currentButtonState 변수에 저장합니다.
-
-  // 버튼 상태가 변화한 경우
-  if (currentButtonState != lastButtonState) {
-    // 버튼이 눌렸을 때 상태를 변경합니다.
-    if (currentButtonState == HIGH) {
-      ledState = !ledState;  // LED 상태를 토글합니다.
-      fanState = !fanState;  // FAN 상태를 토글합니다.
-    }
-    delay(50);  // 버튼 상태 변화에 대한 노이즈를 방지하기 위한 짧은 지연
-  }
-
-  // LED 상태에 따라 NeoPixel 색상을 설정합니다.
-  if (ledState) {
-    for (int i = 0; i < NUMPIXELS; i += 2) {
-      pixels.setPixelColor(i, pixels.Color(255, 0, 0));  // 짝수 픽셀을 빨간색으로 설정합니다.
-    }
-    for (int i = 1; i < NUMPIXELS; i += 2) {
-      pixels.setPixelColor(i, pixels.Color(0, 0, 255));  // 홀수 픽셀을 파란색으로 설정합니다.
-    }
-    pixels.show();  // 색상 변경 사항을 디스플레이합니다.
-    digitalWrite(FAN_PIN, HIGH);  // 팬을 켭니다.
-  } else {
-    pixels.clear();  // 모든 픽셀을 꺼서 LED를 끕니다.
-    pixels.show();   // 색상 변경 사항을 디스플레이합니다.
-    digitalWrite(FAN_PIN, LOW);  // 팬을 끕니다.
-  }
-
-  lastButtonState = currentButtonState;  // 마지막 버튼 상태를 현재 상태로 업데이트합니다.
-  delay(100);                            // 버튼 디바운싱을 위한 지연
-}<br>
-
-
 ---
 
-# 07_ConnetingToBlynkByWifi
+ # 7_WiFi로 Blynk와 연동
