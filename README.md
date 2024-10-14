@@ -204,4 +204,29 @@
 
 ---
 
- # 7_WiFi로 Blynk와 연동
+ # 7_WiFi 연결 및 Blynk와 연동 확인
+
+ 이 프로젝트의 목표는 **ESP32와 Blynk 클라우드 서버 연동** 및 이를 위한 **무선 네트워크 연결 여부를 확인**하는 것입니다.
+
+<details>
+  <summary>준비물</summary>
+  - ESP32 보드 1개<br>
+  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개<br>
+  - USB 케이블(ESP32와 PC 연결용) 1개<br>
+  - 무선 네트워크 환경(ssid 입력 시 5[Ghz]는 불가능함에 유의, 2.4[Ghz] 사용)<br>
+  - Arduino IDE (코드 작성 및 업로드)<br>
+  - Blynk 라이브러리 (Arduino IDE에서 설치, 본 실습에서는 "Blynk" by Volodymyr Shymanskyy 사용)
+</details>
+
+<details>
+  <summary>코드 설명</summary>
+  - `Blynk.begin()` 함수를 사용하여 ESP32가 WiFi 네트워크와 Blynk 서버에 연결되도록 설정합니다.<br>
+  - 내장 LED(2번 핀)를 제어하여 WiFi 및 Blynk 서버의 연결 상태를 시각적으로 확인할 수 있습니다.<br>
+  - `Blynk.run()` 함수는 Blynk 라이브러리가 원활하게 동작하고, 서버와의 통신을 지속적으로 유지하도록 합니다.<br>
+  - 연결 상태에 따라 ESP32에 내장된 LED를 깜빡이도록 하여, WiFi 연결 및 Blynk 서버에 연결된 상태를 육안으로 확인할 수 있습니다.<br>
+  - WiFi가 연결된 경우: LED가 1초 간격으로 깜빡입니다.<br>
+  - WiFi가 연결되지 않았거나, Blynk 서버에 연결되지 않은 경우: LED가 꺼져 있습니다.<br>
+  - 참고) `Serial.begin(9600)`은 시리얼 모니터에서 디버깅 정보를 확인할 수 있도록 설정하였으며, Blynk 서버와의 통신 상태를 확인하는 데 사용할 수 있습니다.
+</details>
+
+---
