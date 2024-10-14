@@ -114,4 +114,34 @@
 
 ---
 
-# 04_OledTest
+# 4_OLED 제어
+
+이 프로젝트의 목표는 **I2 통신C**을 통해 **OLED 디스플레이**에 특정 텍스트를 출력하는 것입니다.
+
+<details>
+  <summary>준비물</summary>
+  - ESP32 보드 1개<br>
+  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개<br>
+  - USB 케이블(ESP32와 PC 연결용) 1개<br>
+  - 128x64 OLED 디스플레이(SSD1306) 1개
+  - 점퍼 와이어(쉴드와 OLED 모듈 연결용, 4핀) 1개<br>
+  - Arduino IDE (코드 작성 및 업로드)<br>
+  - Adafruit BusIO, Adafruit GFX 및 Adafruit SSD1306 라이브러리(Arduino IDE에서 설치, 본 실습에서는 "Adafruit SSD1306" by Adafruit 사용)
+</details>
+
+<details>
+  <summary>코드 설명</summary>
+  - I2C 통신을 사용하여 SSD1306 OLED 디스플레이에 텍스트를 출력합니다.<br>
+  - 디스플레이의 해상도(128x64)를 설정하고, 디스플레이 객체를 초기화한 후 텍스트를 출력합니다.<br>
+  - 텍스트는 총 4줄로 구성되어 있으며, "Smart Vivarium Test"와 "프로젝트 제작자 이름/닉네임"을 포함합니다.<br>
+  - 'display.clearDisplay()'로 화면을 지우고(초기화), "display.setTextSize(2)"로 텍스트 크기를 두 배로 설정합니다.<br>
+  - 'display.println()'과 'display.print()'를 사용하여 각 줄에 텍스트를 출력하며, 'display.display()'를 호출하여 내용을 OLED 화면에 텍스트를 출력합니다.<br>
+  - 또한 프로그램이 정상적으로 작동하지 않을 경우, 시리얼 모니터에 오류 메시지를 출력한 후 무한 루프에 빠져 오류를 디버깅할 수 있게 설정되어 있습니다.<br>
+</details>
+
+**4-1_OLED 제어 응용**<br>
+  - 본 응용 프로젝트의 목표는 위에서 살펴본 OLED에 Cds, DHT11 센서로 읽어들인 값을 출력함으로써 현재의 온도, 습도 및 밝기 정도(5단계)를 실시간으로 모니터링하는 것입니다.
+
+  ---
+
+# 05_Button
