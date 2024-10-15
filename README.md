@@ -12,9 +12,10 @@
 
   **2. ESP32 확장쉴드 변경**  
 - Motor Driver가 내장됨으로써 직류 모터의 활용이 손쉬워졌습니다.
-- 연결 케이블의 개선(잘 꼬이지 않음)이 되었습니다.
-- 쉴드 및 센서 등의 모듈이 Inserted nut 방식(볼트를 체결할 수 있는 나사산이 내장됨)으로써 너트의 사용이 최소화되었습니다.
-- **[스마트비바리움 버전1 보기](https://github.com/kimyw33/SmartVivarirumV1/blob/main/)**
+  **3. 연결 케이블의 개선(잘 꼬이지 않음)이 됨**
+  **4. 쉴드 및 센서 등의 모듈이 Inserted nut 방식(볼트를 체결할 수 있는 나사산이 내장됨)으로 변경됨**
+- 너트의 사용이 최소화되었습니다.
+  **5. [스마트비바리움 버전1 보기](https://github.com/kimyw33/SmartVivarirumV1/blob/main/)**
 </details>
 
 ## 개발환경 및 준비물
