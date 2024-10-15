@@ -14,8 +14,8 @@
 #include <Adafruit_NeoPixel.h>  // NeoPixel LED 제어를 위한 헤더파일 호출
 
 // WiFi 정보
-char ssid[] = "homesweethome";  // 연결할 WiFi의 SSID(네트워크 이름)
-char pass[] = "micasa202";      // 연결할 WiFi의 비밀번호
+char ssid[] = "3층 메이커실";  // 연결할 WiFi의 SSID(네트워크 이름)
+char pass[] = "ksm1234567";    // 연결할 WiFi의 비밀번호
 
 // OLED 디스플레이 관련 상수 정의
 #define SCREEN_WIDTH 128     // OLED 디스플레이의 너비 (픽셀 단위)
@@ -31,7 +31,7 @@ char pass[] = "micasa202";      // 연결할 WiFi의 비밀번호
 #define Cds 34  // 조도 센서 핀 번호
 
 // NeoPixel 및 버튼 관련 상수 정의
-#define PIN 16          // NeoPixel 스트립을 위한 GPIO 4
+#define PIN 16         // NeoPixel 스트립을 위한 GPIO 4
 #define BUTTON_PIN 32  // 버튼을 위한 GPIO 23
 #define FAN_PIN 5      // FAN을 위한 GPIO 5
 #define NUMPIXELS 18   // NeoPixel의 픽셀 수
@@ -127,11 +127,11 @@ void updateLEDState() {
 
 // 팬 제어 함수
 void updateFANState() {
-    if (fan_state) {
-        digitalWrite(FAN_PIN, HIGH);  // 팬 ON
-    } else {
-        digitalWrite(FAN_PIN, LOW);  // 팬 OFF
-    }
+  if (fan_state) {
+    digitalWrite(FAN_PIN, HIGH);  // 팬 ON
+  } else {
+    digitalWrite(FAN_PIN, LOW);  // 팬 OFF
+  }
 }
 
 // 버튼을 통한 LED 제어 함수
@@ -175,7 +175,7 @@ void setup() {
 
   pixels.begin();                     // NeoPixel 초기화
   pinMode(BUTTON_PIN, INPUT_PULLUP);  // 풀업 저항 활성화하여 버튼 핀 설정
-  pinMode(FAN_PIN, OUTPUT);         // 릴레이 핀 설정
+  pinMode(FAN_PIN, OUTPUT);           // 릴레이 핀 설정
 
   Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
 
