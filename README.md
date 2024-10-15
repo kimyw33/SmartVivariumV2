@@ -23,9 +23,10 @@
 - 세부 준비물 내역은 아래 소단위 프로젝트마다 제시하였습니다.<br>
 
 ## 프로젝트의 흐름
-- 0번은 강의자료로서 본 프로젝트를 H/W 중점(테라리움 제작)과 S/W 중점(IoT 활용)으로 구분하여 각각의 pt(presentation) 자료를 공유합니다.<br>
-- 다음으로 1~8까지 소단위 프로젝트를 순차적으로 실행해가며, ESP32, 각종 센서 및 액추에이터의 활용 방법, 무선 네트워크를 통한 Blynk 연동 방법 등을 살펴볼 수 있습니다.<br>
-- 이후 9번 프로젝트에서는 스마트 비바리움의 IoT 파트를 구현할 수 있도록 구성하였습니다.<br>
+- 아래 강의자료를 토대로 1~7까지 소단위 프로젝트를 순차적으로 실행해가며, ESP32, 각종 센서 및 액추에이터의 활용 방법, 무선 네트워크를 통한 Blynk 연동 방법 등을 살펴볼 수 있습니다.<br>
+- 이후 8번 프로젝트에서는 스마트 비바리움의 IoT 파트를 구현할 수 있도록 구성하였습니다.<br>
+**<a href="https://docs.google.com/presentation/d/12xPUkoJv91gLXm0bsvXzf9R5jyYTA5dgaRWX5TxJ8Es/edit#slide=id.g30a0a790ebb_0_480">스마트비바리움 만들기 H/W 파트 강의자료</a>**<br>
+**<a href="https://docs.google.com/presentation/d/1XFu0OybRgOFuvAiohChtytxxnoHKm3WtEePIajUeksk/edit#slide=id.g2768ca7ef44_0_65>스마트비바리움 만들기 S/W 파트 강의자료</a>**
 
 <details>
   <summary>환경 구축(최초 1회 수행)</summary>
