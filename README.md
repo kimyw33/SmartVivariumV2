@@ -49,9 +49,9 @@
 
 <details>
   <summary>준비물</summary>
-  - ESP32 보드 1개<br>
-  - USB 케이블(ESP32와 PC 연결용) 1개<br>
-  - Arduino IDE(코드 작성 및 업로드)<br>
+  - ESP32 보드 1개
+  - USB 케이블(ESP32와 PC 연결용) 1개
+  - Arduino IDE(코드 작성 및 업로드)
 </details>
 
 <details>
@@ -69,24 +69,24 @@
 
 <details>
   <summary>준비물</summary>
-  - ESP32 보드 1개<br>
-  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개<br>
-  - USB 케이블(ESP32와 PC 연결용) 1개<br>
-  - 조도 센서(Cds) 1개<br>
-  - 점퍼 와이어(쉴드와 조도 센서 모듈 연결용) 1개<br>
-  - Arduino IDE(코드 작성 및 업로드)<br>
+  - ESP32 보드 1개
+  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개
+  - USB 케이블(ESP32와 PC 연결용) 1개
+  - 조도 센서(Cds) 1개
+  - 점퍼 와이어(쉴드와 조도 센서 모듈 연결용) 1개
+  - Arduino IDE(코드 작성 및 업로드)
 </details>
 
 <details>
   <summary>코드 설명</summary>
-  - 쉴드의 입력 전용(Input Only) 중, GPIO 34번 핀을 사용하여 조도 센서의 값을 아날로그 신호 형태로 읽어들입니다.<br>
-  - 읽어들인 아날로그 값(0 ~ 4095)은 빛의 양에 따라 변화하며, 값이 낮을수록 어두운 상태, 값이 높을수록 밝은 상태를 의미합니다.<br>
-  - 시리얼 모니터를 통해 실시간으로 주변 환경의 밝기를 모니터링합니다.<br>
+  - 쉴드의 입력 전용(Input Only) 중, GPIO 34번 핀을 사용하여 조도 센서의 값을 아날로그 신호 형태로 읽어들입니다.
+  - 읽어들인 아날로그 값(0 ~ 4095)은 빛의 양에 따라 변화하며, 값이 낮을수록 어두운 상태, 값이 높을수록 밝은 상태를 의미합니다.
+  - 시리얼 모니터를 통해 실시간으로 주변 환경의 밝기를 모니터링합니다.
 </details>
 
 **2-1_조도 센서 응용**<br>
-- 본 응용 프로젝트의 목표는 ESP32와 조도 센서를 사용하여 주변의 빛의 밝기를 측정하고, 그 값을 5단계로 구분하여 시리얼 모니터에 출력하는 것입니다.<br>
-- 이를 바탕으로 최종 프로젝트에서는 "밝고 어두운 정도에 따른 LED ON/OFF제어" 실습을 수행하게 됩니다.
+본 응용 프로젝트의 목표는 ESP32와 조도 센서를 사용하여 주변의 빛의 밝기를 측정하고, 그 값을 5단계로 구분하여 시리얼 모니터에 출력하는 것입니다.<br>
+이를 바탕으로 최종 프로젝트에서는 "밝고 어두운 정도에 따른 LED ON/OFF제어" 실습을 수행하게 됩니다.
 
 ---
 
@@ -97,20 +97,20 @@
 
 <details>
   <summary>준비물</summary>
-  - ESP32 보드 1개<br>
-  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개<br>
-  - USB 케이블(ESP32와 PC 연결용) 1개<br>
+  - ESP32 보드 1개
+  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개
+  - USB 케이블(ESP32와 PC 연결용) 1개
   - 온/습도 센서(DHT11) 1개
-  - 점퍼 와이어(쉴드와 온/습도 센서 모듈 연결용) 1개<br>
-  - Arduino IDE (코드 작성 및 업로드)<br>
+  - 점퍼 와이어(쉴드와 온/습도 센서 모듈 연결용) 1개
+  - Arduino IDE (코드 작성 및 업로드)
   - DHT 라이브러리(Arduino IDE에서 설치, 본 실습에서는 "DHT sensor library" by Adafruit 사용)
 </details>
 
 <details>
   <summary>코드 설명</summary>
-  - GPIO 33번 핀에 연결된 DHT11 센서로부터 온도와 습도 데이터를 읽어들입니다.<br>
-  - 'DHT.h'헤더파일에 포함된 `dht.readTemperature()` 함수로 온도 값을, `dht.readHumidity()` 함수로 습도 값을 읽습니다.<br>
-  - 읽어들인 값은 시리얼 모니터를 통해 출력되며, DHT11 센서는 특성 상 최소 2초 이상의 지연이 필요하므로, 'delay(2000)'를 사용합니다.<br>
+  - GPIO 33번 핀에 연결된 DHT11 센서로부터 온도와 습도 데이터를 읽어들입니다.
+  - 'DHT.h'헤더파일에 포함된 `dht.readTemperature()` 함수로 온도 값을, `dht.readHumidity()` 함수로 습도 값을 읽습니다.
+  - 읽어들인 값은 시리얼 모니터를 통해 출력되며, DHT11 센서는 특성 상 최소 2초 이상의 지연이 필요하므로, 'delay(2000)'를 사용합니다.
 </details>
 
 ---
@@ -121,27 +121,27 @@
 
 <details>
   <summary>준비물</summary>
-  - ESP32 보드 1개<br>
-  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개<br>
-  - USB 케이블(ESP32와 PC 연결용) 1개<br>
+  - ESP32 보드 1개
+  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개
+  - USB 케이블(ESP32와 PC 연결용) 1개
   - 128x64 OLED 디스플레이(SSD1306) 1개
-  - 점퍼 와이어(쉴드와 OLED 모듈 연결용, 4핀) 1개<br>
-  - Arduino IDE (코드 작성 및 업로드)<br>
+  - 점퍼 와이어(쉴드와 OLED 모듈 연결용, 4핀) 1개
+  - Arduino IDE (코드 작성 및 업로드)
   - Adafruit BusIO, Adafruit GFX 및 Adafruit SSD1306 라이브러리(Arduino IDE에서 설치, 본 실습에서는 "Adafruit SSD1306" by Adafruit 사용)
 </details>
 
 <details>
   <summary>코드 설명</summary>
-  - I2C 통신을 사용하여 SSD1306 OLED 디스플레이에 텍스트를 출력합니다.<br>
-  - 디스플레이의 해상도(128x64)를 설정하고, 디스플레이 객체를 초기화한 후 텍스트를 출력합니다.<br>
-  - 텍스트는 총 4줄로 구성되어 있으며, "Smart Vivarium Test"와 "프로젝트 제작자 이름/닉네임"을 포함합니다.<br>
-  - 'display.clearDisplay()'로 화면을 지우고(초기화), "display.setTextSize(2)"로 텍스트 크기를 두 배로 설정합니다.<br>
-  - 'display.println()'과 'display.print()'를 사용하여 각 줄에 텍스트를 출력하며, 'display.display()'를 호출하여 내용을 OLED 화면에 텍스트를 출력합니다.<br>
-  - 또한 프로그램이 정상적으로 작동하지 않을 경우, 시리얼 모니터에 오류 메시지를 출력한 후 무한 루프에 빠져 오류를 디버깅할 수 있게 설정되어 있습니다.<br>
+  - I2C 통신을 사용하여 SSD1306 OLED 디스플레이에 텍스트를 출력합니다.
+  - 디스플레이의 해상도(128x64)를 설정하고, 디스플레이 객체를 초기화한 후 텍스트를 출력합니다.
+  - 텍스트는 총 4줄로 구성되어 있으며, "Smart Vivarium Test"와 "프로젝트 제작자 이름/닉네임"을 포함합니다.
+  - 'display.clearDisplay()'로 화면을 지우고(초기화), "display.setTextSize(2)"로 텍스트 크기를 두 배로 설정합니다.
+  - 'display.println()'과 'display.print()'를 사용하여 각 줄에 텍스트를 출력하며, 'display.display()'를 호출하여 내용을 OLED 화면에 텍스트를 출력합니다.
+  - 또한 프로그램이 정상적으로 작동하지 않을 경우, 시리얼 모니터에 오류 메시지를 출력한 후 무한 루프에 빠져 오류를 디버깅할 수 있게 설정되어 있습니다.
 </details>
 
 **4-1_OLED 제어 응용**<br>
-  - 본 응용 프로젝트의 목표는 위에서 살펴본 OLED에 Cds, DHT11 센서로 읽어들인 값을 출력함으로써 현재의 온도, 습도 및 밝기 정도(5단계)를 실시간으로 모니터링하는 것입니다.
+  본 응용 프로젝트의 목표는 위에서 살펴본 OLED에 Cds, DHT11 센서로 읽어들인 값을 출력함으로써 현재의 온도, 습도 및 밝기 정도(5단계)를 실시간으로 모니터링하는 것입니다.
 
   ---
 
@@ -152,55 +152,55 @@
 
 <details>
   <summary>준비물</summary>
-  - ESP32 보드 1개<br>
-  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개<br>
-  - USB 케이블(ESP32와 PC 연결용) 1개<br>
+  - ESP32 보드 1개
+  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개
+  - USB 케이블(ESP32와 PC 연결용) 1개
   - BUTTON 모듈 1개
-  - 점퍼 와이어(쉴드와 BUTTON 모듈 연결용) 1개<br>
-  - Arduino IDE (코드 작성 및 업로드)<br>
+  - 점퍼 와이어(쉴드와 BUTTON 모듈 연결용) 1개
+  - Arduino IDE (코드 작성 및 업로드)
 </details>
 
 <details>
   <summary>코드 설명</summary>
-  - 버튼 핀 설정: 'pinMode(BUTTON, INPUT)'을 사용하여 버튼 핀을 입력 모드로 설정합니다.<br>
-  - 버튼 상태 읽기: 'digitalRead(BUTTON)'으로 버튼 핀의 디지털 입력 값을 읽어옵니다.<br>
-  - 버튼 상태 출력: 읽어온 버튼 상태를 'Serial.println(buttonState)'을 사용하여 시리얼 모니터에 출력합니다.<br>
-  - 디바운싱: 'delay(100)'을 사용하여 버튼 상태를 읽는 간격을 0.1초로 설정하여 입력 노이즈를 방지합니다.<br>
+  - 버튼 핀 설정: 'pinMode(BUTTON, INPUT)'을 사용하여 버튼 핀을 입력 모드로 설정합니다.
+  - 버튼 상태 읽기: 'digitalRead(BUTTON)'으로 버튼 핀의 디지털 입력 값을 읽어옵니다.
+  - 버튼 상태 출력: 읽어온 버튼 상태를 'Serial.println(buttonState)'을 사용하여 시리얼 모니터에 출력합니다.
+  - 디바운싱: 'delay(100)'을 사용하여 버튼 상태를 읽는 간격을 0.1초로 설정하여 입력 노이즈를 방지합니다.
 </details>
 
 **5-1_버튼 제어 응용**<br>
-- 본 응용 프로젝트의 목표는 버튼을 마치 ON / OFF 스위치 처럼 "한 번 눌렀을 때 버튼 상태를 0->1 또는 1->0로 유지하는 것"입니다.<br>
-- 버튼이 눌릴 때마다 토글(Toggle)하여 현재의 상태를 시리얼 모니터에 출력합니다.<br>
+본 응용 프로젝트의 목표는 버튼을 마치 ON / OFF 스위치 처럼 "한 번 눌렀을 때 버튼 상태를 0->1 또는 1->0로 유지하는 것"입니다.<br>
+버튼이 눌릴 때마다 토글(Toggle)하여 현재의 상태를 시리얼 모니터에 출력합니다.
 
  ---
 
  # 6_버튼으로 LED와 FAN 제어
 
- 이 프로젝트의 목적은 위에서 살펴본 **BUTTON을 활용**하여 **NeoPixel LED 스트립 및 FAN을 제어**하는 것입니다.<br>
- 버튼을 눌렀을 때, NeoPixel LED와 FAN이 켜지며, 버튼을 다시 누르면 꺼집니다.<br>
+이 프로젝트의 목적은 위에서 살펴본 **BUTTON을 활용**하여 **NeoPixel LED 스트립 및 FAN을 제어**하는 것입니다.<br>
+버튼을 눌렀을 때, NeoPixel LED와 FAN이 켜지며, 버튼을 다시 누르면 꺼집니다.<br>
 추가로 NeoPixel Led의 색상은 식물의 광합성에 가장 효율적인 **청색**과 **적색**으로 설정하였습니다.<br>
 참고) 본 프로젝트에서 제작할 비바리움의 크기(200x200x200)를 고려하여 LED(9구)*2개 = 18구를 직렬 연결(모듈 1개의 OUT 단자와 추가한 모듈의 IN 단자를 연결)하여 사용하였습니다. LED 출력 개수를 변경하고자 할 경우 'NUMPIXELS 18'의 개수 부분을 필요한 만큼 변경 가능합니다.
 
 <details>
   <summary>준비물</summary>
-  - ESP32 보드 1개<br>
-  - EPS32 쉴드(DOIT ESP32 DEVKIT V1, 모터 드라이버 내장) 1개<br>
-  - USB 케이블(ESP32와 PC 연결용) 1개<br>
+  - ESP32 보드 1개
+  - EPS32 쉴드(DOIT ESP32 DEVKIT V1, 모터 드라이버 내장) 1개
+  - USB 케이블(ESP32와 PC 연결용) 1개
   - BUTTON 모듈 1개
-  - NeoPixel LED 스트립 모듈 2개(픽셀 수: 9구*2개 = 총 18구)<br>
-  - DC FAN 1개<br>
-  - 점퍼 와이어(쉴드와 BUTTON 모듈, LED 모듈 연결용) 총 3개<br>
-  - Arduino IDE (코드 작성 및 업로드)<br>
+  - NeoPixel LED 스트립 모듈 2개(픽셀 수: 9구*2개 = 총 18구)
+  - DC FAN 1개
+  - 점퍼 와이어(쉴드와 BUTTON 모듈, LED 모듈 연결용) 총 3개
+  - Arduino IDE (코드 작성 및 업로드)
   - Adafruit NeoPixel 라이브러리(Arduino IDE에서 설치, 본 실습에서는 "Adafruit NeoPixel" by Adafruit 사용)
 </details>
 
 <details>
   <summary>코드 설명</summary>
-  - 버튼 상태 읽기: `digitalRead(BUTTON_PIN)`을 사용하여 버튼의 현재 상태를 읽어옵니다.<br>
-  - 버튼 상태 변화 감지: 버튼의 상태가 변화했는지 확인하고, 상태가 `HIGH`일 때 LED 상태를 토글합니다.<br>
-  - LED 색상 설정: `ledState` 변수에 따라 LED의 색상을 설정합니다. 버튼이 눌리면 짝수 인덱스의 LED를 빨간색으로, 홀수 인덱스의 LED를 파란색으로 설정합니다. 버튼이 눌리지 않으면 모든 LED를 꺼서 LED를 끕니다.<br>
-  - FAN ON/OFF 설정: 'fanState' 변수를 활용하여 LED의 On/OFF와 동시에 FAN을 켜고 끕니다.<br>
-  - 디바운싱: 버튼 입력의 노이즈를 방지하기 위해 짧은 지연을 추가합니다.<br>
+  - 버튼 상태 읽기: `digitalRead(BUTTON_PIN)`을 사용하여 버튼의 현재 상태를 읽어옵니다.
+  - 버튼 상태 변화 감지: 버튼의 상태가 변화했는지 확인하고, 상태가 `HIGH`일 때 LED 상태를 토글합니다.
+  - LED 색상 설정: `ledState` 변수에 따라 LED의 색상을 설정합니다. 버튼이 눌리면 짝수 인덱스의 LED를 빨간색으로, 홀수 인덱스의 LED를 파란색으로 설정합니다. 버튼이 눌리지 않으면 모든 LED를 꺼서 LED를 끕니다.
+  - FAN ON/OFF 설정: 'fanState' 변수를 활용하여 LED의 On/OFF와 동시에 FAN을 켜고 끕니다.
+  - 디바운싱: 버튼 입력의 노이즈를 방지하기 위해 짧은 지연을 추가합니다.
 </details>
 
 ---
@@ -211,22 +211,22 @@
 
 <details>
   <summary>준비물</summary>
-  - ESP32 보드 1개<br>
-  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개<br>
-  - USB 케이블(ESP32와 PC 연결용) 1개<br>
-  - 무선 네트워크 환경(ssid 입력 시 5[Ghz]는 불가능함에 유의, 2.4[Ghz] 사용)<br>
-  - Arduino IDE (코드 작성 및 업로드)<br>
+  - ESP32 보드 1개
+  - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개
+  - USB 케이블(ESP32와 PC 연결용) 1개
+  - 무선 네트워크 환경(ssid 입력 시 5[Ghz]는 불가능함에 유의, 2.4[Ghz] 사용)
+  - Arduino IDE (코드 작성 및 업로드)
   - Blynk 라이브러리 (Arduino IDE에서 설치, 본 실습에서는 "Blynk" by Volodymyr Shymanskyy 사용)
 </details>
 
 <details>
   <summary>코드 설명</summary>
-  - `Blynk.begin()` 함수를 사용하여 ESP32가 WiFi 네트워크와 Blynk 서버에 연결되도록 설정합니다.<br>
-  - 내장 LED(2번 핀)를 제어하여 WiFi 및 Blynk 서버의 연결 상태를 시각적으로 확인할 수 있습니다.<br>
-  - `Blynk.run()` 함수는 Blynk 라이브러리가 원활하게 동작하고, 서버와의 통신을 지속적으로 유지하도록 합니다.<br>
-  - 연결 상태에 따라 ESP32에 내장된 LED를 깜빡이도록 하여, WiFi 연결 및 Blynk 서버에 연결된 상태를 육안으로 확인할 수 있습니다.<br>
-  - WiFi가 연결된 경우: LED가 1초 간격으로 깜빡입니다.<br>
-  - WiFi가 연결되지 않았거나, Blynk 서버에 연결되지 않은 경우: LED가 꺼져 있습니다.<br>
+  - `Blynk.begin()` 함수를 사용하여 ESP32가 WiFi 네트워크와 Blynk 서버에 연결되도록 설정합니다.
+  - 내장 LED(2번 핀)를 제어하여 WiFi 및 Blynk 서버의 연결 상태를 시각적으로 확인할 수 있습니다.
+  - `Blynk.run()` 함수는 Blynk 라이브러리가 원활하게 동작하고, 서버와의 통신을 지속적으로 유지하도록 합니다.
+  - 연결 상태에 따라 ESP32에 내장된 LED를 깜빡이도록 하여, WiFi 연결 및 Blynk 서버에 연결된 상태를 육안으로 확인할 수 있습니다.
+  - WiFi가 연결된 경우: LED가 1초 간격으로 깜빡입니다.
+  - WiFi가 연결되지 않았거나, Blynk 서버에 연결되지 않은 경우: LED가 꺼져 있습니다.
   - 참고) `Serial.begin(9600)`은 시리얼 모니터에서 디버깅 정보를 확인할 수 있도록 설정하였으며, Blynk 서버와의 통신 상태를 확인하는 데 사용할 수 있습니다.
 </details>
 
@@ -239,30 +239,30 @@
 
 <details>
   <summary>준비물</summary>
-  - ESP32 보드 1개<br>
-  - ESP32 확장 쉴드 1개(모터 드라이버 내장 쉴드)<br>
-  - 온/습도 센서 모듈 1개(DHT11)<br>
-  - 조도 센서 모듈 1개<br>
-  - NeoPixel LED(9구) * 2개(총 18구)<br>
-  - DC FAN 1개<br>
-  - SSD1306 OLED 디스플레이<br>
-  - 버튼 1개<br>
-  - USB 케이블 (ESP32와 PC 연결용)<br>
-  - WiFi 네트워크 (SSID 및 비밀번호 필요)<br>
-  - Blynk 템플릿 (Blynk 계정 및 인증 토큰 필요)<br>
-  - Arduino IDE (코드 작성 및 업로드)<br>
+  - ESP32 보드 1개
+  - ESP32 확장 쉴드 1개(모터 드라이버 내장 쉴드)
+  - 온/습도 센서 모듈 1개(DHT11)
+  - 조도 센서 모듈 1개
+  - NeoPixel LED(9구) * 2개(총 18구)
+  - DC FAN 1개
+  - SSD1306 OLED 디스플레이
+  - 버튼 1개
+  - USB 케이블 (ESP32와 PC 연결용)
+  - WiFi 네트워크 (SSID 및 비밀번호 필요)
+  - Blynk 템플릿 (Blynk 계정 및 인증 토큰 필요)
+  - Arduino IDE (코드 작성 및 업로드)
   - 필요한 라이브러리 (Blynk, Adafruit SSD1306, Adafruit GFX, Adafruit NeoPixel, DHT)
 </details>
 
 <details>
   <summary>코드 설명</summary>
-  - WiFi 및 Blynk 연결: `Blynk.begin()`을 사용하여 ESP32가 WiFi 네트워크와 Blynk 서버에 연결되도록 설정합니다.<br>
-  - 온습도 측정: `dhtEvent()` 함수는 DHT11 센서를 사용하여 실시간으로 온도와 습도를 측정하고, 측정된 데이터를 Blynk 앱으로 전송합니다.<br>
-  - 조도 측정: `cdsEvent()` 함수는 조도 센서(Cds)를 사용하여 빛의 밝기를 측정하고, 이를 Blynk 앱으로 전송합니다.<br>
-  - OLED 디스플레이: `showDisplay()` 함수는 OLED 디스플레이에 실시간으로 측정된 온도, 습도, 조도 값을 출력합니다.<br>
-  - LED 제어: `updateLEDState()` 함수는 NeoPixel LED의 상태를 제어하며, Blynk 앱 또는 버튼을 통해 켜고 끌 수 있습니다.<br>
-  - FAN 제어: 'updateFANState()' 함수는 팬(Fan)의 상태를 제어하며, Blynk 앱을 통해 켜고 끌 수 있습니다.<br>
-  - 버튼 제어: `handleButtonPress()` 함수는 버튼을 눌렀을 때 NeoPixel LED 상태를 토글합니다. 버튼이 눌릴 때 LED 상태가 바뀌고, 변경된 상태는 Blynk 앱으로 전송됩니다.<br>
-  - Blynk 앱 제어: `BLYNK_WRITE(V3)` 핸들러는 Blynk 앱에서 V3 가상 핀을 통해 LED를 제어하며, 앱에서 보내온 값을 기반으로 NeoPixel LED의 상태를 제어합니다.<br>
+  - WiFi 및 Blynk 연결: `Blynk.begin()`을 사용하여 ESP32가 WiFi 네트워크와 Blynk 서버에 연결되도록 설정합니다.
+  - 온습도 측정: `dhtEvent()` 함수는 DHT11 센서를 사용하여 실시간으로 온도와 습도를 측정하고, 측정된 데이터를 Blynk 앱으로 전송합니다.
+  - 조도 측정: `cdsEvent()` 함수는 조도 센서(Cds)를 사용하여 빛의 밝기를 측정하고, 이를 Blynk 앱으로 전송합니다.
+  - OLED 디스플레이: `showDisplay()` 함수는 OLED 디스플레이에 실시간으로 측정된 온도, 습도, 조도 값을 출력합니다.
+  - LED 제어: `updateLEDState()` 함수는 NeoPixel LED의 상태를 제어하며, Blynk 앱 또는 버튼을 통해 켜고 끌 수 있습니다.
+  - FAN 제어: 'updateFANState()' 함수는 팬(Fan)의 상태를 제어하며, Blynk 앱을 통해 켜고 끌 수 있습니다.
+  - 버튼 제어: `handleButtonPress()` 함수는 버튼을 눌렀을 때 NeoPixel LED 상태를 토글합니다. 버튼이 눌릴 때 LED 상태가 바뀌고, 변경된 상태는 Blynk 앱으로 전송됩니다.
+  - Blynk 앱 제어: `BLYNK_WRITE(V3)` 핸들러는 Blynk 앱에서 V3 가상 핀을 통해 LED를 제어하며, 앱에서 보내온 값을 기반으로 NeoPixel LED의 상태를 제어합니다.
   - 타이머 설정: `timer.setInterval()` 함수를 사용하여 일정 시간마다 센서 데이터를 읽고, OLED 디스플레이를 갱신하며, Blynk 서버와 통신합니다.
 </details>
