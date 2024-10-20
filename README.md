@@ -18,7 +18,10 @@
 **4. 쉴드 및 센서 등의 모듈이 Inserted nut 방식(볼트를 체결할 수 있는 나사산이 내장됨)으로 변경됨**
 - 너트의 사용이 최소화되었습니다.
 
-**5. [스마트비바리움 버전1 보기](https://github.com/kimyw33/SmartVivarirumV1/blob/main/)**
+**5. IoT 데이터 스트림을 위한 Web Server를 'ThingsBoard에서 Blynk로 변경함**
+- 기능은 제한되었으나, 보다 손쉬운 활용이 가능해졌습니다.
+
+**[스마트비바리움 버전1 보기](https://github.com/kimyw33/SmartVivarirumV1/blob/main/)**
 </details>
 
 ## 개발환경 및 준비물
@@ -33,8 +36,7 @@
 
 <details>
   <summary>환경 구축(최초 1회 수행)</summary>
-  1. OS에 맞는 Arduino IDE 설치<br>
-  <a href="https://www.arduino.cc/en/software">설치 링크</a>
+  1. OS에 맞는 Arduino IDE 설치 <a href="https://www.arduino.cc/en/software">설치 링크</a><br>
   2. 필요한 경우 시스템 언어 변경(File/Arduino IED->Preferences->재시작)<br>
   3. 기본 설정->추가 보드 관리자 URL->"비공식 보드 지원 URL 목록을 보려면 클릭하십시오." 클릭->"Espressif ESP32" 검색->해당 "*.json"파일 복사/붙여넣기 후 확인<br>
   4. 보드 매니저->**esp32 by Espressif Systems**설치<br>
@@ -42,8 +44,7 @@
   6. 보드 및 포트를 아래와 같이 연결<br>
      - 보드: DOIT ESP32 DEVKIT V1<br>
      - 포트: Serial Port(USB), 포트 번호는 COM4, COM3 등으로 다를 수 있음.<br>
-  7. ESP32 업로드 에러 발생 시
-  <a href="https://docs.google.com/presentation/d/1MqSPEBPEWeh-agVcmBz7CRioSePWG-13oV_nJNzy-uo/edit?usp=sharing">문제 해결 방법</a>
+  참고) ESP32 업로드 에러 발생 시, <a href="https://docs.google.com/presentation/d/1MqSPEBPEWeh-agVcmBz7CRioSePWG-13oV_nJNzy-uo/edit?usp=sharing">문제 해결 방법</a>
 </details>
 
 # 1_내장 LED 제어
