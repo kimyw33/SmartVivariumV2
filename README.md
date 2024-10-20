@@ -28,20 +28,20 @@
 ## 프로젝트의 흐름
 - 아래 강의자료를 토대로 1~7까지 소단위 프로젝트를 순차적으로 실행해가며, ESP32, 각종 센서 및 액추에이터의 활용 방법, 무선 네트워크를 통한 Blynk 연동 방법 등을 살펴볼 수 있습니다.
 - 이후 8번 프로젝트에서는 스마트 비바리움의 IoT 파트를 구현할 수 있도록 구성하였습니다.
-- **<a href="https://docs.google.com/presentation/d/12xPUkoJv91gLXm0bsvXzf9R5jyYTA5dgaRWX5TxJ8Es/edit#slide=id.g30a0a790ebb_0_480">스마트비바리움 만들기 H/W 파트 강의자료</a>**
+- **[스마트비바리움 만들기 H/W 파트 강의자료](https://docs.google.com/presentation/d/12xPUkoJv91gLXm0bsvXzf9R5jyYTA5dgaRWX5TxJ8Es/edit#slide=id.g30a0a790ebb_0_480)**
 - **[스마트비바리움 만들기 S/W 파트 강의자료](https://docs.google.com/presentation/d/1XFu0OybRgOFuvAiohChtytxxnoHKm3WtEePIajUeksk/edit#slide=id.g2768ca7ef44_0_65)**
 
 <details>
   <summary>환경 구축(최초 1회 수행)</summary>
-  1. OS에 맞는 Arduino IDE 설치
+  1. OS에 맞는 Arduino IDE 설치<br>
   <a href="https://www.arduino.cc/en/software">설치 링크</a>
-  2. 필요한 경우 시스템 언어 변경(File/Arduino IED->Preferences->재시작)
-  3. 기본 설정->추가 보드 관리자 URL->"비공식 보드 지원 URL 목록을 보려면 클릭하십시오." 클릭->"Espressif ESP32" 검색->해당 "*.json"파일 복사/붙여넣기 후 확인
-  4. 보드 매니저->"esp32 by Espressif Systems"설치
-  5. PC와 ESP32 연결
-  6. 보드 및 포트를 아래와 같이 연결
-     - 보드: DOIT ESP32 DEVKIT V1
-     - 포트: Serial Port(USB), 포트 번호는 COM4, COM3 등으로 다를 수 있음.
+  2. 필요한 경우 시스템 언어 변경(File/Arduino IED->Preferences->재시작)<br>
+  3. 기본 설정->추가 보드 관리자 URL->"비공식 보드 지원 URL 목록을 보려면 클릭하십시오." 클릭->"Espressif ESP32" 검색->해당 "*.json"파일 복사/붙여넣기 후 확인<br>
+  4. 보드 매니저->**esp32 by Espressif Systems**설치<br>
+  5. PC와 ESP32 연결<br>
+  6. 보드 및 포트를 아래와 같이 연결<br>
+     - 보드: DOIT ESP32 DEVKIT V1<br>
+     - 포트: Serial Port(USB), 포트 번호는 COM4, COM3 등으로 다를 수 있음.<br>
   7. ESP32 업로드 에러 발생 시
   <a href="https://docs.google.com/presentation/d/1MqSPEBPEWeh-agVcmBz7CRioSePWG-13oV_nJNzy-uo/edit?usp=sharing">문제 해결 방법</a>
 </details>
