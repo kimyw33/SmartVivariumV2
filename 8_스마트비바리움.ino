@@ -68,29 +68,8 @@ void dhtEvent() {
 
 // 조도 센서 데이터 읽기 함수
 void cdsEvent() {
-  cds_value = analogRead(Cds);  // 조도 센서에서 아날로그 형태의 조도 값을 읽어 cds_value 변수에 저장
-  getCdsLevel(cds_value);       // 조도 값을 5단계로 나눈 값(조도 레벨)을 구하는 함수 호출
-
-  switch (cds_level) {
-    case 0:
-      brightness = "So dark";  // 레벨이 0일 때, 매우 어두움(So dark)으로 설정
-      break;
-    case 1:
-      brightness = "dark";  // 레벨이 1일 때, 어두움(dark)으로 설정
-      break;
-    case 2:
-      brightness = "Normal";  // 레벨이 2일 때, 보통(Normal)으로 설정
-      break;
-    case 3:
-      brightness = "Bright";  // 레벨이 3일 때, 밝음(Bright)으로 설정
-      break;
-    case 4:
-      brightness = "So bright";  // 레벨이 4일 때, 매우 밝음(So Bright)으로 설정
-      break;
-    default:
-      brightness = "Unknown";  // 예외 처리(측정 범위를 벗어났을 경우)
-      break;
-  }
+  cds_value = analogRead(Cds);         // 조도 센서에서 아날로그 형태의 조도 값을 읽어 cds_value 변수에 저장
+  cds_level = getCdsLevel(cds_value);  // 조도 값을 5단계로 나눈 값(조도 레벨)을 구하는 함수 호출
   Blynk.virtualWrite(V2, cds_level);
 }
 
@@ -126,21 +105,28 @@ void showDisplay() {
   display.print(h);
   display.println(" %");
 
-  /*
-  String brightness;
-  if (cds_value < 820) {
-    brightness = "So Dark";
-  } else if (cds_value < 1630) {
-    brightness = "Dark";
-  } else if (cds_value < 2450) {
-    brightness = "Normal";
-  } else if (cds_value < 3270) {
-    brightness = "Bright";
-  } else {
-    brightness = "So Bright";
+  // cds_level에 따른 모니터 출력값을 변수 brightness에 저장하는 조건문
+  switch (cds_level) {
+    case 0:
+      brightness = "So dark";  // 레벨이 0일 때, 매우 어두움(So dark)으로 설정
+      break;
+    case 1:
+      brightness = "dark";  // 레벨이 1일 때, 어두움(dark)으로 설정
+      break;
+    case 2:
+      brightness = "Normal";  // 레벨이 2일 때, 보통(Normal)으로 설정
+      break;
+    case 3:
+      brightness = "Bright";  // 레벨이 3일 때, 밝음(Bright)으로 설정
+      break;
+    case 4:
+      brightness = "So bright";  // 레벨이 4일 때, 매우 밝음(So Bright)으로 설정
+      break;
+    default:
+      brightness = "Unknown";  // 예외 처리(측정 범위를 벗어났을 경우)
+      break;
   }
-*/
-  display.println(brightness);
+  display.println(brightness);  // cds_level에 따른 문자 출력
   display.setTextSize(1);
   display.print("by kimyw33");
   display.display();
