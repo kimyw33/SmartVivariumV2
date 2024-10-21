@@ -16,7 +16,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 DHT dht(DHTPIN, DHTTYPE);  // DHT 객체 생성, 핀 번호와 센서 타입을 설정
 
 void setup() {
-  Serial.begin(9600);  // 시리얼 통신을 9600 baud rate로 설정
+  Serial.begin(9600);  // 시리얼 통신 속도를 9600 baud rate로 설정
   dht.begin();         // DHT 센서 시작
 
   // 디스플레이 초기화. 초기화 실패 시 에러 메시지 출력 후 무한 루프

@@ -8,5 +8,5 @@ void setup() {
 void loop() {
   int buttonState = digitalRead(BUTTON);  // BUTTON 핀의 디지털 입력 값을 읽어 buttonState 변수에 저장합니다.
   Serial.println(buttonState);            // buttonState 값을 시리얼 모니터에 출력합니다.
-  delay(100);                             // 100밀리초 지연을 추가하여 다음 읽기 전까지 잠시 대기합니다.
+  delay(500);                             // 0.5초 지연을 추가하여 다음 읽기 전까지 잠시 대기합니다.
 }
