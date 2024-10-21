@@ -18,9 +18,9 @@ void loop() {
   } else if (Cds_value < 3270) {
     brightness = "Bright";  // 조도 값이 높으면 "Bright"(밝음)
   } else {
-    brightness = "So Bright";  // 조도 값이 매우 높으면 "So Bright"매우 밝음
+    brightness = "So Bright";  // 조도 값이 매우 높으면 "So Bright"(매우 밝음)
   }
 
-  Serial.println(brightness);  // 밝기 정도를 5단계로 구분하여 시리얼 모니터에 출력
+  Serial.println(brightness);  // 밝기 정도를 시리얼 모니터에 출력
   delay(1000);                 // 1초마다 값을 읽고 출력하여 과도한 출력 방지
 }
