@@ -27,5 +27,5 @@ void loop() {
   // 마지막 버튼 상태를 현재 상태로 업데이트
   lastButtonState = currentButtonState;
 
-  delay(100);  // 100밀리초 지연을 추가하여 다음 읽기 전까지 잠시 대기합니다.
+  delay(500);  // 0.5초 지연을 추가하여 다음 읽기 전까지 잠시 대기합니다.
 }
