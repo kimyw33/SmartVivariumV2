@@ -7,8 +7,8 @@
 
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
-bool led_state = false;          // LED 상태를 저장하는 변수
-bool fan_state = false;          // FAN 상태를 저장하는 변수
+bool led_state = false;         // LED 상태를 저장하는 변수
+bool fan_state = false;         // FAN 상태를 저장하는 변수
 bool lastButtonState = LOW;     // 마지막 버튼 상태를 저장하는 변수
 bool currentButtonState = LOW;  // 현재 버튼 상태를 저장하는 변수
 
