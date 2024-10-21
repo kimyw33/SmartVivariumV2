@@ -5,17 +5,17 @@ void setup() {
 }
 
 void loop() {
-  int Cds_value = analogRead(Cds);  // 조도 센서로부터 아날로그 값을 읽어들임 (0 ~ 4095)
+  int cds_value = analogRead(Cds);  // 조도 센서로부터 아날로그 값을 읽어들임 (0 ~ 4095)
 
   // 조도 값을 5단계로 구분
   String brightness;
-  if (Cds_value < 820) {
+  if (cds_value < 820) {
     brightness = "So Dark";  // 조도 값이 매우 낮으면 "So Dark"(매우 어두움)
-  } else if (Cds_value < 1630) {
+  } else if (cds_value < 1630) {
     brightness = "Dark";  // 조도 값이 낮으면 "Dark"(어두움)
-  } else if (Cds_value < 2450) {
+  } else if (cds_value < 2450) {
     brightness = "Normal";  // 조도 값이 중간이면 "Normal"(보통)
-  } else if (Cds_value < 3270) {
+  } else if (cds_value < 3270) {
     brightness = "Bright";  // 조도 값이 높으면 "Bright"(밝음)
   } else {
     brightness = "So Bright";  // 조도 값이 매우 높으면 "So Bright"(매우 밝음)
