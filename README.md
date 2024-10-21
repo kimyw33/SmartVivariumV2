@@ -7,39 +7,44 @@
 <details>
   <summary>V1과의 차이</summary>
 
-  **1. ESP32 개발보드 변경**
- - 기존 5 type 포트가 C-type 포트로 변경되었습니다.
+**1. ESP32 개발보드 변경**
+- 기존 5 type 포트가 C-type 포트로 변경되었습니다.
 
-  **2. ESP32 확장쉴드 변경**  
-- Motor Drive가 내장됨으로써 직류 모터의 활용이 손쉬워졌습니다.
-- 연결 케이블의 개선(잘 꼬이지 않음)이 되었습니다.
-- 볼트를 체결할 수 있는 나사산이 추가됨으로써 보드와 이 외의 H/W 연결 시, 너트가 불필요해졌습니다.
+**2. ESP32 확장쉴드 변경**  
+- Motor Driver가 내장됨으로써 직류 모터의 활용이 손쉬워졌습니다.
 
-  **<a href="https://github.com/kimyw33/SmartVivarirumV1/blob/main/">스마트비바리움 버전1 보기</a>**
+**3. 연결 케이블의 개선(잘 꼬이지 않음)이 됨**
+
+**4. 쉴드 및 센서 등의 모듈이 Inserted nut 방식(볼트를 체결할 수 있는 나사산이 내장됨)으로 변경됨**
+- 너트의 사용이 최소화되었습니다.
+
+**5. IoT 데이터 스트림을 위한 Web Server를 ThingsBoard에서 Blynk로 변경함**
+- 기능은 제한되었으나, 보다 손쉬운 활용이 가능해졌습니다.
+
+**[스마트비바리움 버전1 보기](https://github.com/kimyw33/SmartVivarirumV1/blob/main/)**
 </details>
 
 ## 개발환경 및 준비물
-- 무선 네트워크 환경, 구글 계정, Arduino IDE가 설치된 PC, ESP32 개발보드, ESP32 개발보드를 효율적으로 사용하기 위한 확장 쉴드, 각종 센서 및 액추에이터, 케이블 등<br>
-- 세부 준비물 내역은 아래 소단위 프로젝트마다 제시하였습니다.<br>
+- 무선 네트워크 환경, 구글 계정, Arduino IDE가 설치된 PC, ESP32 개발보드, ESP32 개발보드를 효율적으로 사용하기 위한 확장 쉴드, 각종 센서 및 액추에이터, 케이블 등
+- 세부 준비물 내역은 아래 소단위 프로젝트마다 제시하였습니다.
 
 ## 프로젝트의 흐름
-- 0번은 강의자료로서 본 프로젝트를 H/W 중점(테라리움 제작)과 S/W 중점(IoT 활용)으로 구분하여 각각의 pt(presentation) 자료를 공유합니다.<br>
-- 다음으로 1~8까지 소단위 프로젝트를 순차적으로 실행해가며, ESP32, 각종 센서 및 액추에이터의 활용 방법, 무선 네트워크를 통한 Blynk 연동 방법 등을 살펴볼 수 있습니다.<br>
-- 이후 9번 프로젝트에서는 스마트 비바리움의 IoT 파트를 구현할 수 있도록 구성하였습니다.<br>
+- 아래 강의자료를 토대로 1~7까지 소단위 프로젝트를 순차적으로 실행해가며, ESP32, 각종 센서 및 액추에이터의 활용 방법, 무선 네트워크를 통한 Blynk 연동 방법 등을 살펴볼 수 있습니다.
+- 이후 8번 프로젝트에서는 스마트 비바리움의 IoT 파트를 구현할 수 있도록 구성하였습니다.
+- **[스마트비바리움 만들기 H/W 파트 강의자료](https://docs.google.com/presentation/d/12xPUkoJv91gLXm0bsvXzf9R5jyYTA5dgaRWX5TxJ8Es/edit#slide=id.g30a0a790ebb_0_480)**
+- **[스마트비바리움 만들기 S/W 파트 강의자료](https://docs.google.com/presentation/d/1XFu0OybRgOFuvAiohChtytxxnoHKm3WtEePIajUeksk/edit#slide=id.g2768ca7ef44_0_65)**
 
 <details>
   <summary>환경 구축(최초 1회 수행)</summary>
-  1. OS에 맞는 Arduino IDE 설치
-  <a href="https://www.arduino.cc/en/software">설치 링크</a><br>
+  1. OS에 맞는 Arduino IDE 설치 <a href="https://www.arduino.cc/en/software">설치 링크</a><br>
   2. 필요한 경우 시스템 언어 변경(File/Arduino IED->Preferences->재시작)<br>
   3. 기본 설정->추가 보드 관리자 URL->"비공식 보드 지원 URL 목록을 보려면 클릭하십시오." 클릭->"Espressif ESP32" 검색->해당 "*.json"파일 복사/붙여넣기 후 확인<br>
-  4. 보드 매니저->"esp32 by Espressif Systems"설치<br>
+  4. 보드 매니저->**esp32 by Espressif Systems**설치<br>
   5. PC와 ESP32 연결<br>
   6. 보드 및 포트를 아래와 같이 연결<br>
      - 보드: DOIT ESP32 DEVKIT V1<br>
      - 포트: Serial Port(USB), 포트 번호는 COM4, COM3 등으로 다를 수 있음.<br>
-  7. ESP32 업로드 에러 발생 시
-  <a href="https://docs.google.com/presentation/d/1MqSPEBPEWeh-agVcmBz7CRioSePWG-13oV_nJNzy-uo/edit?usp=sharing">문제 해결 방법</a>
+  참고) ESP32 업로드 에러 발생 시, <a href="https://docs.google.com/presentation/d/1MqSPEBPEWeh-agVcmBz7CRioSePWG-13oV_nJNzy-uo/edit?usp=sharing">문제 해결 방법</a>
 </details>
 
 # 1_내장 LED 제어
@@ -55,8 +60,8 @@
 
 <details>
   <summary>코드 설명</summary>
-  이 실습에서는 ESP32 내장 LED를 활용하여 간단한 점멸 제어를 수행합니다.<br>
-  GPIO 2번 핀에 연결된 내장 LED를 1초마다 켜고 끄는 동작을 반복하게 됩니다.<br>
+  - 이 실습에서는 ESP32 내장 LED를 활용하여 간단한 점멸 제어를 수행합니다.<br>
+  - GPIO 2번 핀에 연결된 내장 LED를 1초마다 켜고 끄는 동작을 반복하게 됩니다.<br>
 </details>
 
 ---
@@ -84,25 +89,25 @@
 </details>
 
 **2-1_조도 센서 응용**<br>
-- 본 응용 프로젝트의 목표는 ESP32와 조도 센서를 사용하여 주변의 빛의 밝기를 측정하고, 그 값을 5단계로 구분하여 시리얼 모니터에 출력하는 것입니다.<br>
-- 이를 바탕으로 최종 프로젝트에서는 "밝고 어두운 정도에 따른 LED ON/OFF제어" 실습을 수행하게 됩니다.
+본 응용 프로젝트의 목표는 ESP32와 조도 센서를 사용하여 주변의 빛의 밝기를 측정하고, 그 값을 5단계로 구분하여 시리얼 모니터에 출력하는 것입니다.<br>
+이를 바탕으로 최종 프로젝트에서는 "밝고 어두운 정도에 따른 LED ON/OFF제어" 실습을 수행하게 됩니다.<br>
 
 ---
 
 # 3_온/습도 센서 활용
 
 이 프로젝트의 목표는 **ESP32와 온/습도센서**를 사용하여 **주변 환경의 온도와 습도를 측정**하고, 그 값을 **시리얼 모니터**를 통해 실시간으로 확인하는 것입니다.<br>
-이를 바탕으로 "실시간으로 측정된 온도와 습도값을 OLED 및 App에서 확인하는" 실습을 수행하게 됩니다.
+이를 바탕으로 "실시간으로 측정된 온도와 습도값을 OLED 및 App에서 확인하는" 실습을 수행하게 됩니다.<br>
 
 <details>
   <summary>준비물</summary>
   - ESP32 보드 1개<br>
   - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개<br>
   - USB 케이블(ESP32와 PC 연결용) 1개<br>
-  - 온/습도 센서(DHT11) 1개
+  - 온/습도 센서(DHT11) 1개<br>
   - 점퍼 와이어(쉴드와 온/습도 센서 모듈 연결용) 1개<br>
   - Arduino IDE (코드 작성 및 업로드)<br>
-  - DHT 라이브러리(Arduino IDE에서 설치, 본 실습에서는 "DHT sensor library" by Adafruit 사용)
+  - DHT 라이브러리(Arduino IDE에서 설치, 본 실습에서는 "DHT sensor library" by Adafruit 사용)<br>
 </details>
 
 <details>
@@ -123,10 +128,10 @@
   - ESP32 보드 1개<br>
   - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개<br>
   - USB 케이블(ESP32와 PC 연결용) 1개<br>
-  - 128x64 OLED 디스플레이(SSD1306) 1개
+  - 128x64 OLED 디스플레이(SSD1306) 1개<br>
   - 점퍼 와이어(쉴드와 OLED 모듈 연결용, 4핀) 1개<br>
   - Arduino IDE (코드 작성 및 업로드)<br>
-  - Adafruit BusIO, Adafruit GFX 및 Adafruit SSD1306 라이브러리(Arduino IDE에서 설치, 본 실습에서는 "Adafruit SSD1306" by Adafruit 사용)
+  - Adafruit BusIO, Adafruit GFX 및 Adafruit SSD1306 라이브러리(Arduino IDE에서 설치, 본 실습에서는 "Adafruit SSD1306" by Adafruit 사용)<br>
 </details>
 
 <details>
@@ -140,7 +145,7 @@
 </details>
 
 **4-1_OLED 제어 응용**<br>
-  - 본 응용 프로젝트의 목표는 위에서 살펴본 OLED에 Cds, DHT11 센서로 읽어들인 값을 출력함으로써 현재의 온도, 습도 및 밝기 정도(5단계)를 실시간으로 모니터링하는 것입니다.
+  본 응용 프로젝트의 목표는 위에서 살펴본 OLED에 Cds, DHT11 센서로 읽어들인 값을 출력함으로써 현재의 온도, 습도 및 밝기 정도(5단계)를 실시간으로 모니터링하는 것입니다.
 
   ---
 
@@ -154,7 +159,7 @@
   - ESP32 보드 1개<br>
   - EPS32 쉴드(DOIT ESP32 DEVKIT V1) 1개<br>
   - USB 케이블(ESP32와 PC 연결용) 1개<br>
-  - BUTTON 모듈 1개
+  - BUTTON 모듈 1개<br>
   - 점퍼 와이어(쉴드와 BUTTON 모듈 연결용) 1개<br>
   - Arduino IDE (코드 작성 및 업로드)<br>
 </details>
@@ -168,15 +173,15 @@
 </details>
 
 **5-1_버튼 제어 응용**<br>
-- 본 응용 프로젝트의 목표는 버튼을 마치 ON / OFF 스위치 처럼 "한 번 눌렀을 때 버튼 상태를 0->1 또는 1->0로 유지하는 것"입니다.<br>
-- 버튼이 눌릴 때마다 토글(Toggle)하여 현재의 상태를 시리얼 모니터에 출력합니다.<br>
+본 응용 프로젝트의 목표는 버튼을 마치 ON / OFF 스위치 처럼 "한 번 눌렀을 때 버튼 상태를 0->1 또는 1->0로 유지하는 것"입니다.<br>
+버튼이 눌릴 때마다 토글(Toggle)하여 현재의 상태를 시리얼 모니터에 출력합니다.
 
  ---
 
  # 6_버튼으로 LED와 FAN 제어
 
- 이 프로젝트의 목적은 위에서 살펴본 **BUTTON을 활용**하여 **NeoPixel LED 스트립 및 FAN을 제어**하는 것입니다.<br>
- 버튼을 눌렀을 때, NeoPixel LED와 FAN이 켜지며, 버튼을 다시 누르면 꺼집니다.<br>
+이 프로젝트의 목적은 위에서 살펴본 **BUTTON을 활용**하여 **NeoPixel LED 스트립 및 FAN을 제어**하는 것입니다.<br>
+버튼을 눌렀을 때, NeoPixel LED와 FAN이 켜지며, 버튼을 다시 누르면 꺼집니다.<br>
 추가로 NeoPixel Led의 색상은 식물의 광합성에 가장 효율적인 **청색**과 **적색**으로 설정하였습니다.<br>
 참고) 본 프로젝트에서 제작할 비바리움의 크기(200x200x200)를 고려하여 LED(9구)*2개 = 18구를 직렬 연결(모듈 1개의 OUT 단자와 추가한 모듈의 IN 단자를 연결)하여 사용하였습니다. LED 출력 개수를 변경하고자 할 경우 'NUMPIXELS 18'의 개수 부분을 필요한 만큼 변경 가능합니다.
 
@@ -185,12 +190,12 @@
   - ESP32 보드 1개<br>
   - EPS32 쉴드(DOIT ESP32 DEVKIT V1, 모터 드라이버 내장) 1개<br>
   - USB 케이블(ESP32와 PC 연결용) 1개<br>
-  - BUTTON 모듈 1개
+  - BUTTON 모듈 1개<br>
   - NeoPixel LED 스트립 모듈 2개(픽셀 수: 9구*2개 = 총 18구)<br>
   - DC FAN 1개<br>
   - 점퍼 와이어(쉴드와 BUTTON 모듈, LED 모듈 연결용) 총 3개<br>
   - Arduino IDE (코드 작성 및 업로드)<br>
-  - Adafruit NeoPixel 라이브러리(Arduino IDE에서 설치, 본 실습에서는 "Adafruit NeoPixel" by Adafruit 사용)
+  - Adafruit NeoPixel 라이브러리(Arduino IDE에서 설치, 본 실습에서는 "Adafruit NeoPixel" by Adafruit 사용)<br>
 </details>
 
 <details>
@@ -215,7 +220,7 @@
   - USB 케이블(ESP32와 PC 연결용) 1개<br>
   - 무선 네트워크 환경(ssid 입력 시 5[Ghz]는 불가능함에 유의, 2.4[Ghz] 사용)<br>
   - Arduino IDE (코드 작성 및 업로드)<br>
-  - Blynk 라이브러리 (Arduino IDE에서 설치, 본 실습에서는 "Blynk" by Volodymyr Shymanskyy 사용)
+  - Blynk 라이브러리 (Arduino IDE에서 설치, 본 실습에서는 "Blynk" by Volodymyr Shymanskyy 사용)<br>
 </details>
 
 <details>
@@ -223,10 +228,10 @@
   - `Blynk.begin()` 함수를 사용하여 ESP32가 WiFi 네트워크와 Blynk 서버에 연결되도록 설정합니다.<br>
   - 내장 LED(2번 핀)를 제어하여 WiFi 및 Blynk 서버의 연결 상태를 시각적으로 확인할 수 있습니다.<br>
   - `Blynk.run()` 함수는 Blynk 라이브러리가 원활하게 동작하고, 서버와의 통신을 지속적으로 유지하도록 합니다.<br>
-  - 연결 상태에 따라 ESP32에 내장된 LED를 깜빡이도록 하여, WiFi 연결 및 Blynk 서버에 연결된 상태를 육안으로 확인할 수 있습니다.<br>
+  - 연결 상태에 따라 ESP32에 내장된 LED를 깜빡이도록 하여, WiFi 연결 및 Blynk 서버에 연결된 상태를 육안으로 확인할 수 있습니다.
   - WiFi가 연결된 경우: LED가 1초 간격으로 깜빡입니다.<br>
   - WiFi가 연결되지 않았거나, Blynk 서버에 연결되지 않은 경우: LED가 꺼져 있습니다.<br>
-  - 참고) `Serial.begin(9600)`은 시리얼 모니터에서 디버깅 정보를 확인할 수 있도록 설정하였으며, Blynk 서버와의 통신 상태를 확인하는 데 사용할 수 있습니다.
+  - 참고) `Serial.begin(9600)`은 시리얼 모니터에서 디버깅 정보를 확인할 수 있도록 설정하였으며, Blynk 서버와의 통신 상태를 확인하는 데 사용할 수 있습니다.<br>
 </details>
 
 ---
@@ -250,7 +255,7 @@
   - WiFi 네트워크 (SSID 및 비밀번호 필요)<br>
   - Blynk 템플릿 (Blynk 계정 및 인증 토큰 필요)<br>
   - Arduino IDE (코드 작성 및 업로드)<br>
-  - 필요한 라이브러리 (Blynk, Adafruit SSD1306, Adafruit GFX, Adafruit NeoPixel, DHT)
+  - 필요한 라이브러리 (Blynk, Adafruit SSD1306, Adafruit GFX, Adafruit NeoPixel, DHT)<br>
 </details>
 
 <details>
@@ -263,5 +268,5 @@
   - FAN 제어: 'updateFANState()' 함수는 팬(Fan)의 상태를 제어하며, Blynk 앱을 통해 켜고 끌 수 있습니다.<br>
   - 버튼 제어: `handleButtonPress()` 함수는 버튼을 눌렀을 때 NeoPixel LED 상태를 토글합니다. 버튼이 눌릴 때 LED 상태가 바뀌고, 변경된 상태는 Blynk 앱으로 전송됩니다.<br>
   - Blynk 앱 제어: `BLYNK_WRITE(V3)` 핸들러는 Blynk 앱에서 V3 가상 핀을 통해 LED를 제어하며, 앱에서 보내온 값을 기반으로 NeoPixel LED의 상태를 제어합니다.<br>
-  - 타이머 설정: `timer.setInterval()` 함수를 사용하여 일정 시간마다 센서 데이터를 읽고, OLED 디스플레이를 갱신하며, Blynk 서버와 통신합니다.
+  - 타이머 설정: `timer.setInterval()` 함수를 사용하여 일정 시간마다 센서 데이터를 읽고, OLED 디스플레이를 갱신하며, Blynk 서버와 통신합니다.<br>
 </details>

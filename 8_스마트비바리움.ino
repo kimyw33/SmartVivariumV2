@@ -49,7 +49,7 @@ Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);  // NeoPixel 객
 BlynkTimer timer;  // Blynk 타이머
 
 // 변수 선언
-float h, t;                     // 습도, 온도 변수
+// float h, t;                  // 습도, 온도 변수이나, 본 프로젝트에서는 활용되지 않음.
 int cds_value;                  // 조도 값 변수
 bool lastButtonState = LOW;     // 마지막 버튼 상태를 저장하는 변수
 bool currentButtonState = LOW;  // 현재 버튼 상태를 저장하는 변수
@@ -141,9 +141,9 @@ void handleButtonPress() {
     led_state = !led_state;                                    // LED 상태 토글
     Blynk.virtualWrite(V3, led_state);                         // Blynk 앱으로 LED 상태 전송
     updateLEDState();                                          // LED 상태 업데이트
-    //fan_state = !fan_state;                                    // FAN 상태 토글
-    //Blynk.virtualWrite(V4, fan_state);                         // Blynk 앱으로 FAN 상태 전송
-    //updateFANState();                                          // FAN 상태 업데이트
+    //fan_state = !fan_state;                                  // FAN 상태 토글 코드이나, LED와 FAN을 동시 제어하지 않으므로 주석 처리
+    //Blynk.virtualWrite(V4, fan_state);                       // Blynk 앱으로 FAN 상태 전송 코드이나, LED와 FAN을 동시 제어하지 않으므로 주석 처리
+    //updateFANState();                                        // FAN 상태 업데이트 코드이나, LED와 FAN을 동시 제어하지 않으므로 주석 처리
   }
   lastButtonState = currentButtonState;  // 버튼 상태 업데이트
 }
