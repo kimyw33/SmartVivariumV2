@@ -49,12 +49,14 @@ Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);  // NeoPixel 객
 BlynkTimer timer;  // Blynk 타이머
 
 // 변수 선언
-// float h, t;                  // 습도, 온도 변수이나, 본 프로젝트에서는 활용되지 않음.
-int cds_value;                  // 조도 값 변수
+float h, t;                     // 습도, 온도 값을 저장하는 변수
+int cds_value;                  // 조도 값을 저장하는 변수
+int cds_level;                  //조도 값을 5단계로 구분한 값을 저장하는 변수
+String brightness;              // 조도 레벨에 따른 출력 문자를 저장하는 변수
 bool lastButtonState = LOW;     // 마지막 버튼 상태를 저장하는 변수
 bool currentButtonState = LOW;  // 현재 버튼 상태를 저장하는 변수
-bool led_state = LOW;           // Blynk 앱에서 제어하는 LED 상태 변수
-bool fan_state = LOW;           // Blynk 앱에서 제어하는 FAN 상태 변수
+bool led_state = LOW;           // LED의 작동 상태를 저장하는 변수
+bool fan_state = LOW;           // FAN의 작동 상태를 저장하는 변수
 
 // 온도 및 습도 센서 데이터 읽기 함수
 void dhtEvent() {
@@ -66,11 +68,48 @@ void dhtEvent() {
 
 // 조도 센서 데이터 읽기 함수
 void cdsEvent() {
-  cds_value = analogRead(Cds);
-  Blynk.virtualWrite(V2, cds_value / 1000);
+  cds_value = analogRead(Cds);  // 조도 센서에서 아날로그 형태의 조도 값을 읽어 cds_value 변수에 저장
+  getCdsLevel(cds_value);       // 조도 값을 5단계로 나눈 값(조도 레벨)을 구하는 함수 호출
+
+  switch (cds_level) {
+    case 0:
+      brightness = "So dark";  // 레벨이 0일 때, 매우 어두움(So dark)으로 설정
+      break;
+    case 1:
+      brightness = "dark";  // 레벨이 1일 때, 어두움(dark)으로 설정
+      break;
+    case 2:
+      brightness = "Normal";  // 레벨이 2일 때, 보통(Normal)으로 설정
+      break;
+    case 3:
+      brightness = "Bright";  // 레벨이 3일 때, 밝음(Bright)으로 설정
+      break;
+    case 4:
+      brightness = "So bright";  // 레벨이 4일 때, 매우 밝음(So Bright)으로 설정
+      break;
+    default:
+      brightness = "Unknown";  // 예외 처리(측정 범위를 벗어났을 경우)
+      break;
+  }
+  Blynk.virtualWrite(V2, cds_level);
 }
 
-// OLED 디스플레이에 값 출력
+// 조도 값에 따른 레벨(0~4)을 구하고 반환하는 함수
+int getCdsLevel(int cds_value) {
+  if (cds_value < 820) {
+    return 0;  // 조도 값이 820 미만일 때 레벨 0 반환
+  } else if (cds_value < 1639) {
+    return 1;  // 조도 값이 820 이상 1639 미만일 때 레벨 1 반환
+  } else if (cds_value < 2458) {
+    return 2;  // 조도 값이 1639 이상 2458 미만일 때 레벨 2 반환
+  } else if (cds_value < 3277) {
+    return 3;  // 조도 값이 2458 이상 3277 미만일 때 레벨 3 반환
+  } else {
+    return 4;  // 조도 값이 3277 이상일 때 레벨 4 반환
+  }
+}
+
+// OLED 디스플레이에 값 출력을 제어하는 함수
 void showDisplay() {
   display.clearDisplay();
   display.setTextSize(1);
@@ -87,6 +126,7 @@ void showDisplay() {
   display.print(h);
   display.println(" %");
 
+  /*
   String brightness;
   if (cds_value < 820) {
     brightness = "So Dark";
@@ -99,7 +139,7 @@ void showDisplay() {
   } else {
     brightness = "So Bright";
   }
-
+*/
   display.println(brightness);
   display.setTextSize(1);
   display.print("by kimyw33");
@@ -161,31 +201,32 @@ BLYNK_WRITE(V4) {
 }
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(9600);  // 시리얼 통신 속도를 9600 baud rate로 설정
 
+  // 디스플레이 초기화 실패 시, 에러메시지("SSD1306 aloocation failed" 출력 후, 멈춤(무한루프) 실행
   if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
     Serial.println(F("SSD1306 allocation failed"));
     for (;;)
       ;
   }
 
-  dht.begin();  // DHT 센서 초기화
-  display.clearDisplay();
-  display.display();
+  dht.begin();             // DHT 센서 초기화
+  display.clearDisplay();  // 디스플레이 지우기
+  display.display();       // 디스플레이를 업데이트하여 화면에 반영
 
   pixels.begin();                     // NeoPixel 초기화
   pinMode(BUTTON_PIN, INPUT_PULLUP);  // 풀업 저항 활성화하여 버튼 핀 설정
-  pinMode(FAN_PIN, OUTPUT);           // 릴레이 핀 설정
+  pinMode(FAN_PIN, OUTPUT);           // Fan 핀 설정
 
-  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);  // Blynk 서버에 접속하여 원격 제어 준비
 
-  timer.setInterval(1000L, dhtEvent);
-  timer.setInterval(500L, cdsEvent);
-  timer.setInterval(1000L, showDisplay);
+  timer.setInterval(1000L, dhtEvent);     // 1초마다 온습도 센서 실행
+  timer.setInterval(1000L, cdsEvent);     // 1초마다 조도 센서 실행
+  timer.setInterval(1000L, showDisplay);  // 1초마다 디스플레이 갱신
 }
 
 void loop() {
-  Blynk.run();
-  timer.run();
+  Blynk.run();          // Blynk 서버와 통신을 실행
+  timer.run();          // timer 실행
   handleButtonPress();  // 버튼 입력을 계속 확인하여 LED 상태 업데이트
 }
