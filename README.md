@@ -1,4 +1,7 @@
 # 스마트 비바리움 강의자료
+| ![첫 번째 이미지](https://drive.google.com/file/d/1WkoANPeLRxUNRZzImQgWP57SdvM34uv3/view?usp=drive_link) | ![두 번째 이미지](https://drive.google.com/file/d/1VmMsg01nIbwjmIKqj_oUJpGMIACU6nMx/view?usp=drive_link) |
+|:-----------------------------:|:-----------------------------:|
+| 완성품 샘플 사진(비바리움에 IoT 기기 연결)           | 완성품 샘플 사진(App에서 제어)           |
 ## 목적
 - 본 프로젝트는 비바리움(구체적으로는 테라리움) 제작과 ESP32 개발보드의 활용(IoT 구현을 위한 도구)을 종합하여 스마트 비바리움을 만드는 것을 목표로 합니다.
 - 프로젝트를 진행하는 과정에서 "메이킹 활동의 즐거움"을 느끼고, "IoT에 대한 지식과 이해(나아가 적용)"를 쌓길 기대합니다.
