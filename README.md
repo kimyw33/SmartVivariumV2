@@ -1,6 +1,5 @@
 # 스마트 비바리움 강의자료
-![완제품샘플사진(하드웨어)](https://github.com/user-attachments/assets/281fc828-b3d0-436a-8c90-c2dedf9c6e65)
-![완제품샘플사진(App연동)](https://github.com/user-attachments/assets/1cca19c5-49c9-4de5-b0e6-4d9d0b5a0f33)
+
 ## 목적
 - 본 프로젝트는 비바리움(구체적으로는 테라리움) 제작과 ESP32 개발보드의 활용(IoT 구현을 위한 도구)을 종합하여 스마트 비바리움을 만드는 것을 목표로 합니다.
 - 프로젝트를 진행하는 과정에서 "메이킹 활동의 즐거움"을 느끼고, "IoT에 대한 지식과 이해(나아가 적용)"를 쌓길 기대합니다.
@@ -241,7 +240,15 @@
 # 8_스마트비바리움
 
 이 프로젝트의 목표는 **ESP32 개발보드**, **Blynk 서버**, **온/습도 센서**, **조도 센서**, **NeoPixel LED**, **OLED 디스플레이**, **DC FAN**을 이용하여 **Smart Vivarium Version** 시스템을 구축하는 것입니다.<br>
-이를 통해 실시간으로 스마트 비바리움의 환경 조건을 모니터링하고, Blynk 웹/앱을 통해 원격으로 제어할 수 있습니다.
+이를 통해 실시간으로 스마트 비바리움의 환경 조건을 모니터링하고, Blynk 웹/앱을 통해 원격으로 제어할 수 있습니다.<br>
+
+<details>
+  <summary>완제품 샘플 사진 보기</summary>
+  - 비바리움과 IoT 연결 사진<br>
+![완제품샘플사진(하드웨어)](https://github.com/user-attachments/assets/281fc828-b3d0-436a-8c90-c2dedf9c6e65)
+  - 스마트폰의 Blynk 앱을 통한 모니터링 및 제어 사진<br>
+![완제품샘플사진(App연동)](https://github.com/user-attachments/assets/1cca19c5-49c9-4de5-b0e6-4d9d0b5a0f33)
+</details>
 
 <details>
   <summary>준비물</summary>
