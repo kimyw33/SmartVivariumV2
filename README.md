@@ -1,5 +1,5 @@
 # 스마트 비바리움 강의자료
-| ![첫 번째 이미지](https://drive.google.com/file/d/1WkoANPeLRxUNRZzImQgWP57SdvM34uv3/view?usp=drive_link) | ![두 번째 이미지](https://drive.google.com/file/d/1VmMsg01nIbwjmIKqj_oUJpGMIACU6nMx/view?usp=drive_link) |
+| ![첫 번째 이미지](https://drive.google.com/file/d/125K197WXVoAyv4a_HLre94aWMGdOR0SC/view?usp=sharing) | ![두 번째 이미지](https://drive.google.com/file/d/1AO00vD-T5wPF-TonHo9k-JIu88fyYzxd/view?usp=sharing) |
 |:-----------------------------:|:-----------------------------:|
 | 완성품 샘플 사진(비바리움에 IoT 기기 연결)           | 완성품 샘플 사진(App에서 제어)           |
 ## 목적
