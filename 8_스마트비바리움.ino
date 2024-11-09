@@ -1,7 +1,7 @@
 // WiFi 및 Blynk 관련 상수 정의
-#define BLYNK_TEMPLATE_ID "TMPL6F-uJiLbR"                    // Blynk 템플릿 ID, Blynk 클라우드와의 연결을 위해 필요한 고유 ID
-#define BLYNK_TEMPLATE_NAME "SmartVivariumV2"                // Blynk 템플릿 이름, 클라우드에서 사용하는 템플릿의 이름
-#define BLYNK_AUTH_TOKEN "QFhWpnMI6RYBHF-EtBe89rpkQLcOpPgv"  // Blynk 인증 토큰, 앱에서 생성한 고유 토큰을 사용하여 기기와 서버를 인증함
+#define BLYNK_TEMPLATE_ID ""                    // Blynk 템플릿 ID, Blynk 클라우드와의 연결을 위해 필요한 고유 ID
+#define BLYNK_TEMPLATE_NAME ""                // Blynk 템플릿 이름, 클라우드에서 사용하는 템플릿의 이름
+#define BLYNK_AUTH_TOKEN ""  // Blynk 인증 토큰, 앱에서 생성한 고유 토큰을 사용하여 기기와 서버를 인증함
 
 // 필요한 함수가 정의된 헤더파일 호출
 #include <WiFi.h>               // WiFi 연결을 위한 헤더파일 호출
@@ -14,8 +14,8 @@
 #include <Adafruit_NeoPixel.h>  // NeoPixel LED 제어를 위한 헤더파일 호출
 
 // WiFi 정보
-char ssid[] = "3층 메이커실";  // 연결할 WiFi의 SSID(네트워크 이름)
-char pass[] = "ksm1234567";    // 연결할 WiFi의 비밀번호
+char ssid[] = "";  // 연결할 WiFi의 SSID(네트워크 이름)
+char pass[] = "";    // 연결할 WiFi의 비밀번호
 
 // OLED 디스플레이 관련 상수 정의
 #define SCREEN_WIDTH 128     // OLED 디스플레이의 너비 (픽셀 단위)
@@ -206,6 +206,10 @@ void setup() {
 
   Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);  // Blynk 서버에 접속하여 원격 제어 준비
 
+  dhtEvent();
+  cdsEvent();
+  showDisplay();
+  
   timer.setInterval(1000L, dhtEvent);     // 1초마다 온습도 센서 실행
   timer.setInterval(1000L, cdsEvent);     // 1초마다 조도 센서 실행
   timer.setInterval(1000L, showDisplay);  // 1초마다 디스플레이 갱신
