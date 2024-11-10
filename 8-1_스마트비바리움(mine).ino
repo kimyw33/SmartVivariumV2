@@ -15,8 +15,8 @@
 #include <Adafruit_NeoPixel.h>  // NeoPixel LED 제어를 위한 헤더파일 호출
 
 // WiFi 정보
-char ssid[] = "3층 메이커실";  // 연결할 WiFi의 SSID(네트워크 이름)
-char pass[] = "ksm1234567";    // 연결할 WiFi의 비밀번호
+char ssid[] = "homesweethome";  // 연결할 WiFi의 SSID(네트워크 이름)
+char pass[] = "micasa202";    // 연결할 WiFi의 비밀번호
 
 // OLED 디스플레이 관련 상수 정의
 #define SCREEN_WIDTH 128     // OLED 디스플레이의 너비 (픽셀 단위)
