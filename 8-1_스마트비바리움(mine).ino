@@ -1,4 +1,3 @@
-
 // WiFi 및 Blynk 관련 상수 정의
 #define BLYNK_TEMPLATE_ID "TMPL6F-uJiLbR"                    // Blynk 템플릿 ID, Blynk 클라우드와의 연결을 위해 필요한 고유 ID
 #define BLYNK_TEMPLATE_NAME "SmartVivariumV2"                // Blynk 템플릿 이름, 클라우드에서 사용하는 템플릿의 이름

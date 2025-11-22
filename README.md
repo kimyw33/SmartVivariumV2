@@ -22,6 +22,9 @@
 **5. IoT 데이터 스트림을 위한 Web Server를 ThingsBoard에서 Blynk로 변경함**
 - 기능은 제한되었으나, 보다 손쉬운 활용이 가능해졌습니다.
 
+**6. IoT 모듈들과 비바리움을 결합하기 위한 중간다리로서 아크릴(4t)로 제작한 바디 도면 파일을 추가함**
+- 레이저커팅기 등을 통해 추가로 바디를 생산하거나, 사용자의 입맛에 맞게 도면을 수정할 수 있도록 도면 파일(파일명: '아크릴도안(샘플).dxf')을 추가하였습니다.
+
 **[스마트비바리움 버전1 보기](https://github.com/kimyw33/SmartVivarirumV1/blob/main/)**
 </details>
 
@@ -32,8 +35,8 @@
 ## 프로젝트의 흐름
 - 아래 강의자료를 토대로 1~7까지 소단위 프로젝트를 순차적으로 실행해가며, ESP32, 각종 센서 및 액추에이터의 활용 방법, 무선 네트워크를 통한 Blynk 연동 방법 등을 살펴볼 수 있습니다.
 - 이후 8번 프로젝트에서는 스마트 비바리움의 IoT 파트를 구현할 수 있도록 구성하였습니다.
-- **[스마트비바리움 만들기 H/W 파트 강의자료](https://docs.google.com/presentation/d/12xPUkoJv91gLXm0bsvXzf9R5jyYTA5dgaRWX5TxJ8Es/edit#slide=id.g30a0a790ebb_0_480)**
-- **[스마트비바리움 만들기 S/W 파트 강의자료](https://docs.google.com/presentation/d/1XFu0OybRgOFuvAiohChtytxxnoHKm3WtEePIajUeksk/edit#slide=id.g2768ca7ef44_0_65)**
+- **[스마트비바리움 만들기 H/W 파트 강의자료](https://docs.google.com/presentation/d/1xiEEJIcgQAc3Wf8NAnwSd_2GeAp62jVrxKwKDYqaawI/edit?usp=drive_link)**
+- **[스마트비바리움 만들기 S/W 파트 강의자료](https://docs.google.com/presentation/d/1tD20j202sxrSdQ39Difr7DJE5rdlGuNYQqIa8jb7N4o/edit?usp=drive_link)**
 
 <details>
   <summary>환경 구축(최초 1회 수행)</summary>
@@ -184,7 +187,7 @@
 이 프로젝트의 목적은 위에서 살펴본 **BUTTON을 활용**하여 **NeoPixel LED 스트립 및 FAN을 제어**하는 것입니다.<br>
 버튼을 눌렀을 때, NeoPixel LED와 FAN이 켜지며, 버튼을 다시 누르면 꺼집니다.<br>
 추가로 NeoPixel Led의 색상은 식물의 광합성에 가장 효율적인 **청색**과 **적색**으로 설정하였습니다.<br>
-참고) 본 프로젝트에서 제작할 비바리움의 크기(200x200x200)를 고려하여 LED(9구)*2개 = 18구를 직렬 연결(모듈 1개의 OUT 단자와 추가한 모듈의 IN 단자를 연결)하여 사용하였습니다. LED 출력 개수를 변경하고자 할 경우 'NUMPIXELS 18'의 개수 부분을 필요한 만큼 변경 가능합니다.
+참고) 본 프로젝트에서 제작할 비바리움의 크기(200x200x300)를 고려하여 LED(9구)*2개 = 18구를 직렬 연결(모듈 1개의 OUT 단자와 추가한 모듈의 IN 단자를 연결)하여 사용하였습니다. LED 출력 개수를 변경하고자 할 경우 'NUMPIXELS 18'의 개수 부분을 필요한 만큼 변경 가능합니다.
 
 <details>
   <summary>준비물</summary>
