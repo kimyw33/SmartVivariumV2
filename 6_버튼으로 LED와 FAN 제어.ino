@@ -1,9 +1,9 @@
 #include <Adafruit_NeoPixel.h>  // NeoPixel 스트립을 제어하기 위한 헤더파일 호출
 
-#define PIN 16         // NeoPixel 스트립을 위한 GPIO 16
+#define PIN 14         // NeoPixel 스트립을 위한 GPIO 14
 #define BUTTON_PIN 32  // 버튼을 위한 GPIO 32
 #define NUMPIXELS 18   // NeoPixel의 픽셀 수
-#define FAN_PIN 5      // FAN을 위한 GPIO 5
+#define FAN_PIN 16     // FAN을 위한 GPIO 16
 
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
