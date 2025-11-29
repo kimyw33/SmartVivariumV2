@@ -31,9 +31,9 @@ char pass[] = "";    // 연결할 WiFi의 비밀번호
 #define Cds 34  // 조도 센서 핀 번호
 
 // NeoPixel 및 버튼 관련 상수 정의
-#define PIN 16         // NeoPixel 스트립을 위한 GPIO 4
+#define PIN 14         // NeoPixel 스트립을 위한 GPIO 14
 #define BUTTON_PIN 32  // 버튼을 위한 GPIO 23
-#define FAN_PIN 5      // FAN을 위한 GPIO 5
+#define FAN_PIN 16     // FAN을 위한 GPIO 16
 #define NUMPIXELS 18   // NeoPixel의 픽셀 수
 
 // DHT 센서 설정
